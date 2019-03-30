@@ -1,2 +1,2 @@
 # O-MVC-perdido
-"O MVC perdido" é uma aventura textual ao estilo aventura fantastica.
+O MVC perdido é um jogo de aventura de texto. O jogador será colocado perante decisões onde terá de, através de inputs de texto, tomar decisões acerca do percurso a seguir, dos objetos que irá utilizar, dos puzzles que terá de completar e das lutas com adversários. O jogo terminará ou com a derrota do jogador, ou com o jogador a encontrar os segredos para se tornar num mestre do MVC. 
