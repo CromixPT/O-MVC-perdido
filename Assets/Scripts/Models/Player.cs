@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class Player : ScriptableObject
 {
     public int life { get; set; }
     public int attackPower { get; set; }
-
 
     public delegate void ViewPlayerUpdateEventHandler(object source, EventArgs args);
     public static event ViewPlayerUpdateEventHandler OnPlayerInfoChange;
