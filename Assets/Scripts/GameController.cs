@@ -5,26 +5,23 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+
+    public delegate void GameStartEventHandler();
+    public static event GameStartEventHandler onGameStart;
+
     // Start is called before the first frame update
 
     void Awake()
     {
-        OnGameStart();
+        Player player = ScriptableObject.CreateInstance<Player>();
+        GameStart();
     }
 
-    private void OnGameStart()
+    protected virtual void GameStart()
     {
-        throw new NotImplementedException();
-    }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (onGameStart != null)
+        {
+            onGameStart();
+        }
     }
 }
