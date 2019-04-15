@@ -7,9 +7,7 @@ public class PlayerView : MonoBehaviour
     private Text playerText;
     private void Awake()
     {
-        
         playerText = GetComponent<Text>();
-        Player.OnPlayerInfoChange += updateView;
     }
 
     public void updateView(object source, EventArgs args)
