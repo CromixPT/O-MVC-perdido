@@ -9,12 +9,14 @@ public class Player : ScriptableObject
     public delegate void ViewPlayerUpdateEventHandler(object source, EventArgs args);
     public static event ViewPlayerUpdateEventHandler OnPlayerInfoChange;
 
+    PlayerView playerView;
     private void Awake()
     {
-        GameController.onGameStart += PlayerStart;
+
+        OnPlayerInfoChange += playerView.updateView;
     }
 
-    private void PlayerStart()
+    public void PlayerStart()
     {
         life = 100;
         attackPower = 100;

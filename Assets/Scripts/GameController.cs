@@ -11,6 +11,9 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         Player player = ScriptableObject.CreateInstance<Player>();
+
+        onGameStart += player.PlayerStart;
+
         GameStart();
     }
 
