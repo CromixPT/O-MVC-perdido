@@ -9,6 +9,11 @@ public class Player : ScriptableObject
     public delegate void ViewPlayerUpdateEventHandler(object source, EventArgs args);
     public static event ViewPlayerUpdateEventHandler OnPlayerInfoChange;
 
+    private void Awake()
+    {
+
+    }
+
     public void PlayerStart()
     {
         life = 100;
