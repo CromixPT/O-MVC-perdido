@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class Player : ScriptableObject
+public class Player : MonoBehaviour
 {
     public int life { get; set; }
     public int attackPower { get; set; }

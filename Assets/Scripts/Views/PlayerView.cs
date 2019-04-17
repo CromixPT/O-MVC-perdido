@@ -4,10 +4,9 @@ using UnityEngine.UI;
 
 public class PlayerView : MonoBehaviour
 {
-    private Text playerText;
+    Text playerText = GameObject.Find("Canvas/PlayerText").GetComponent<Text>();
     private void Awake()
     {
-        playerText = GetComponent<Text>();
     }
 
     public void updateView(object source, EventArgs args)

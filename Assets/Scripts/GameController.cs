@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
@@ -6,15 +7,20 @@ public class GameController : MonoBehaviour
     public delegate void GameStartEventHandler();
     public static event GameStartEventHandler onGameStart;
 
-    PlayerView playerView;
+    public delegate void ViewPlayerUpdateEventHandler(object source, EventArgs args);
+    public static event ViewPlayerUpdateEventHandler OnPlayerInfoChange;
+
+    public PlayerView playerView;
+    public Player player;
 
     // Start is called before the first frame update
     void Awake()
     {
-        Player player = ScriptableObject.CreateInstance<Player>();
-        Player.OnPlayerInfoChange += playerView.updateView;
-        GameController.onGameStart += player.PlayerStart;
+        
+        onGameStart += player.PlayerStart;
         GameStart();
+        
+        
     }
 
     protected virtual void GameStart()
@@ -24,4 +30,5 @@ public class GameController : MonoBehaviour
             onGameStart();
         }
     }
+
 }
