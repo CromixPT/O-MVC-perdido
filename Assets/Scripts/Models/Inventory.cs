@@ -1,26 +1,40 @@
-﻿using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : ScriptableObject
-{    
+{
 
-    public delegate void ViewPlayerUpdateEventHandler(object source, EventArgs args);
-    public static event ViewPlayerUpdateEventHandler OnInventoryInfoChange;
+    public List<Item> characterItems = new List<Item>();
+    public ItemDatabase itemDatabase;
+    
 
-    private void Awake()
+    public void AddItem(int id)
     {
-        GameController.onGameStart += InventoryStart;
+        Item itemToAdd = itemDatabase.GetItem(id);
+        characterItems.Add(itemToAdd);        
+        Debug.Log("Added item: " + itemToAdd.title);
     }
 
-    private void InventoryStart()
+    public void AddItem(string itemName)
     {
-        
-        InfoUpdate();
+        Item itemToAdd = itemDatabase.GetItem(itemName);
+        characterItems.Add(itemToAdd);        
+        Debug.Log("Added item: " + itemToAdd.title);
     }
 
-    private void InfoUpdate()
+    public Item CheckForItem(int id)
     {
-        if (OnInventoryInfoChange != null)
-            OnInventoryInfoChange(this, EventArgs.Empty);
+        return characterItems.Find(item => item.id == id);
+    }
+
+    public void RemoveItem(int id)
+    {
+        Item itemToRemove = CheckForItem(id);
+        if (itemToRemove != null)
+        {
+            characterItems.Remove(itemToRemove);            
+            Debug.Log("Removed item: " + itemToRemove.title);
+        }
     }
 }
