@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class Player : ScriptableObject
+public class Player : MonoBehaviour
 {
     public int life { get; set; }
     public int attackPower { get; set; }
@@ -9,12 +9,7 @@ public class Player : ScriptableObject
     public delegate void ViewPlayerUpdateEventHandler(object source, EventArgs args);
     public static event ViewPlayerUpdateEventHandler OnPlayerInfoChange;
 
-    private void Awake()
-    {
-        GameController.onGameStart += PlayerStart;
-    }
-
-    private void PlayerStart()
+    public void PlayerStart()
     {
         life = 100;
         attackPower = 100;

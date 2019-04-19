@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Inventory : ScriptableObject
 {
 
     public List<Item> characterItems = new List<Item>();
     public ItemDatabase itemDatabase;
-    
+
+    public delegate void ViewInventoryUpdateEventHandler(object source, EventArgs args);
+    public static event ViewInventoryUpdateEventHandler OnInventoryInfoChange;
+
 
     public void AddItem(int id)
     {
@@ -36,5 +40,11 @@ public class Inventory : ScriptableObject
             characterItems.Remove(itemToRemove);            
             Debug.Log("Removed item: " + itemToRemove.title);
         }
+    }
+
+    private void InventoryUpdate()
+    {
+        if (OnInventoryInfoChange != null)
+            OnInventoryInfoChange(this, EventArgs.Empty);
     }
 }
