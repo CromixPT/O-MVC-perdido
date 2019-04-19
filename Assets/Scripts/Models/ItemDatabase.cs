@@ -23,6 +23,7 @@ public class ItemDatabase : ScriptableObject
 
     void BuildDatabase()
     {
+        // exemplos, items a definir
         items = new List<Item>() {
             new Item(0, "Diamond Sword", "A sword made of diamond.",
             new Dictionary<string, int> {

@@ -15,16 +15,32 @@ public class Inventory : ScriptableObject
 
     public void AddItem(int id)
     {
-        Item itemToAdd = itemDatabase.GetItem(id);
-        characterItems.Add(itemToAdd);        
-        Debug.Log("Added item: " + itemToAdd.title);
+        try
+        {
+            Item itemToAdd = itemDatabase.GetItem(id);
+            characterItems.Add(itemToAdd);
+            Debug.Log("Added item: " + itemToAdd.title);
+        }
+        catch (Exception ex)
+        {
+
+            throw new ArgumentException("Nao existe um item com esse id", ex);
+        }
     }
 
     public void AddItem(string itemName)
     {
-        Item itemToAdd = itemDatabase.GetItem(itemName);
-        characterItems.Add(itemToAdd);        
-        Debug.Log("Added item: " + itemToAdd.title);
+        try
+        {
+            Item itemToAdd = itemDatabase.GetItem(itemName);
+            characterItems.Add(itemToAdd);
+            Debug.Log("Added item: " + itemToAdd.title);
+        }
+        catch (Exception ex)
+        {
+
+            throw new ArgumentException("Nao existe um item com esse nome", ex);
+        }
     }
 
     public Item CheckForItem(int id)
@@ -34,12 +50,20 @@ public class Inventory : ScriptableObject
 
     public void RemoveItem(int id)
     {
-        Item itemToRemove = CheckForItem(id);
-        if (itemToRemove != null)
+        try
         {
-            characterItems.Remove(itemToRemove);            
-            Debug.Log("Removed item: " + itemToRemove.title);
+            Item itemToRemove = CheckForItem(id);
+            if (itemToRemove != null)
+            {
+                characterItems.Remove(itemToRemove);
+                Debug.Log("Removed item: " + itemToRemove.title);
+            }
         }
+        catch (Exception ex)
+        {
+
+            throw new ArgumentException("O item que esta a remover não existe", ex);
+        }        
     }
 
     private void InventoryUpdate()
