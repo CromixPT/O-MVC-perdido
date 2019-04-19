@@ -1,18 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+public class Inventory : ScriptableObject
+{    
+
+    public delegate void ViewPlayerUpdateEventHandler(object source, EventArgs args);
+    public static event ViewPlayerUpdateEventHandler OnInventoryInfoChange;
+
+    private void Awake()
     {
-        
+        GameController.onGameStart += InventoryStart;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void InventoryStart()
     {
         
+        InfoUpdate();
+    }
+
+    private void InfoUpdate()
+    {
+        if (OnInventoryInfoChange != null)
+            OnInventoryInfoChange(this, EventArgs.Empty);
     }
 }
