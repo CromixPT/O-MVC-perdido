@@ -14,56 +14,38 @@ public class Inventory : ScriptableObject
 
 
     public void AddItem(int id)
-    {
-        try
-        {
-            Item itemToAdd = itemDatabase.GetItem(id);
-            characterItems.Add(itemToAdd);
-            Debug.Log("Added item: " + itemToAdd.title);
-        }
-        catch (Exception ex)
-        {
-
-            throw new ArgumentException("Nao existe um item com esse id", ex);
-        }
+    {        
+        Item itemToAdd = itemDatabase.GetItem(id);
+        characterItems.Add(itemToAdd);
+        Debug.Log("Added item: " + itemToAdd.title);          
     }
 
     public void AddItem(string itemName)
-    {
-        try
-        {
-            Item itemToAdd = itemDatabase.GetItem(itemName);
-            characterItems.Add(itemToAdd);
-            Debug.Log("Added item: " + itemToAdd.title);
-        }
-        catch (Exception ex)
-        {
-
-            throw new ArgumentException("Nao existe um item com esse nome", ex);
-        }
+    {       
+         Item itemToAdd = itemDatabase.GetItem(itemName);
+         characterItems.Add(itemToAdd);
+         Debug.Log("Added item: " + itemToAdd.title);
+        
     }
 
     public Item CheckForItem(int id)
     {
+        if (id < 0 || id >= characterItems.Count)
+        {
+            throw new IndexOutOfRangeException("int < 0 || int >= characterItems.Count");
+        }
         return characterItems.Find(item => item.id == id);
     }
 
     public void RemoveItem(int id)
     {
-        try
+        
+        Item itemToRemove = CheckForItem(id);
+        if (itemToRemove != null)
         {
-            Item itemToRemove = CheckForItem(id);
-            if (itemToRemove != null)
-            {
-                characterItems.Remove(itemToRemove);
-                Debug.Log("Removed item: " + itemToRemove.title);
-            }
-        }
-        catch (Exception ex)
-        {
-
-            throw new ArgumentException("O item que esta a remover não existe", ex);
-        }        
+            characterItems.Remove(itemToRemove);
+            Debug.Log("Removed item: " + itemToRemove.title);
+        }              
     }
 
     private void InventoryUpdate()

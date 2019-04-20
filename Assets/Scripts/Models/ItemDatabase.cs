@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ItemDatabase : ScriptableObject
 {
     public List<Item> items = new List<Item>();
+    public List<Item> result = new List<Item>();
 
     void Awake()
     {
@@ -13,12 +15,20 @@ public class ItemDatabase : ScriptableObject
 
     public Item GetItem(int id)
     {
+        if (id < 0 || id >= items.Count)
+        {
+            throw new ArgumentOutOfRangeException("int < 0 || int >= items.Count");
+        }
         return items.Find(item => item.id == id);
     }
 
     public Item GetItem(string itemName)
     {
-        return items.Find(item => item.title == itemName);
+        if (!items.Exists(item => item.title == itemName))
+        {
+            throw new ArgumentNullException("string nao encontrada");
+        }
+        return items.Find(item => item.title == itemName);                 
     }
 
     void BuildDatabase()
