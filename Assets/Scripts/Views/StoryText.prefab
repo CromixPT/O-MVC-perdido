@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7921944614412590337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7921944614412590336}
+  - component: {fileID: 7921944614412590338}
+  - component: {fileID: 7921944614412590339}
+  m_Layer: 5
+  m_Name: StoryText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7921944614412590336
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921944614412590337}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.048437502, y: 0.11148149}
+  m_AnchorMax: {x: 0.551, y: 0.8834815}
+  m_AnchoredPosition: {x: 0, y: -0.002532959}
+  m_SizeDelta: {x: 0, y: -0.0050659}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &7921944614412590338
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921944614412590337}
+  m_CullTransparentMesh: 0
+--- !u!114 &7921944614412590339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921944614412590337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 29
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Nibh sit amet commodo nulla
+    facilisi nullam vehicula ipsum. Eu ultrices vitae auctor eu augue. Diam ut venenatis
+    tellus in metus. Quis risus sed vulputate odio ut enim blandit. Nisl condimentum
+    id venenatis a condimentum vitae sapien. Malesuada nunc vel risus commodo viverra
+    maecenas accumsan. Blandit massa enim nec dui nunc mattis enim ut tellus. Eu mi
+    bibendum neque egestas congue quisque. In mollis nunc sed id semper risus. Risus
+    viverra adipiscing at in tellus integer. Vitae semper quis lectus nulla at volutpat
+    diam ut. Scelerisque in dictum non consectetur a erat nam at. Molestie at elementum
+    eu facilisis. Odio morbi quis commodo odio.\r\n\r\nOrnare suspendisse sed nisi
+    lacus sed. Consectetur purus ut faucibus pulvinar elementum integer enim neque.
+    Mauris ultrices eros in cursus turpis massa tincidunt dui ut. Ut faucibus pulvinar
+    elementum integer enim neque volutpat ac tincidunt. Mi proin sed libero enim sed
+    faucibus turpis. Lorem donec massa sapien faucibus et molestie. Risus sed vulputate
+    odio ut enim. Consequat mauris nunc congue nisi. Vitae sapien pellentesque habitant
+    morbi tristique senectus et netus et. Consequat interdum varius sit amet mattis
+    vulputate enim. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.
+    Dui accumsan sit amet nulla facilisi morbi. Massa placerat duis ultricies lacus
+    sed."
