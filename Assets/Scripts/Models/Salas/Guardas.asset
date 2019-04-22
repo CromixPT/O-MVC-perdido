@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nome: salaguardas
   descricao: Sala dos Guardas
-  saidas: []
+  saidas:
+  - {fileID: 11400000, guid: bfdac67c8b2d7da459630cc55cb5686b, type: 2}
+  - {fileID: 11400000, guid: a9a0fc33e82bfd14e81a960a7a727834, type: 2}
