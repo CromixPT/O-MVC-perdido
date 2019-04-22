@@ -579,6 +579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 797961324}
   - component: {fileID: 797961323}
+  - component: {fileID: 797961325}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -598,6 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5874f66c3d577ce4abcc73e7f1dbf09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentRoom: {fileID: 11400000, guid: bfdac67c8b2d7da459630cc55cb5686b, type: 2}
 --- !u!4 &797961324
 Transform:
   m_ObjectHideFlags: 0
@@ -612,6 +614,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &797961325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797961322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e0f27a7cd3c144e9b1b084dcf564af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisplayText: {fileID: 1930382042}
 --- !u!1 &876898057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,25 +1052,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Nibh sit amet commodo nulla
-    facilisi nullam vehicula ipsum. Eu ultrices vitae auctor eu augue. Diam ut venenatis
-    tellus in metus. Quis risus sed vulputate odio ut enim blandit. Nisl condimentum
-    id venenatis a condimentum vitae sapien. Malesuada nunc vel risus commodo viverra
-    maecenas accumsan. Blandit massa enim nec dui nunc mattis enim ut tellus. Eu mi
-    bibendum neque egestas congue quisque. In mollis nunc sed id semper risus. Risus
-    viverra adipiscing at in tellus integer. Vitae semper quis lectus nulla at volutpat
-    diam ut. Scelerisque in dictum non consectetur a erat nam at. Molestie at elementum
-    eu facilisis. Odio morbi quis commodo odio.\r\n\r\nOrnare suspendisse sed nisi
-    lacus sed. Consectetur purus ut faucibus pulvinar elementum integer enim neque.
-    Mauris ultrices eros in cursus turpis massa tincidunt dui ut. Ut faucibus pulvinar
-    elementum integer enim neque volutpat ac tincidunt. Mi proin sed libero enim sed
-    faucibus turpis. Lorem donec massa sapien faucibus et molestie. Risus sed vulputate
-    odio ut enim. Consequat mauris nunc congue nisi. Vitae sapien pellentesque habitant
-    morbi tristique senectus et netus et. Consequat interdum varius sit amet mattis
-    vulputate enim. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.
-    Dui accumsan sit amet nulla facilisi morbi. Massa placerat duis ultricies lacus
-    sed."
+  m_Text: '
+
+'
 --- !u!222 &1930382043
 CanvasRenderer:
   m_ObjectHideFlags: 0
