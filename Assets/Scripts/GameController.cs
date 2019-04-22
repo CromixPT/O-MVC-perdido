@@ -16,11 +16,11 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-
+        
         onGameStart += player.PlayerStart;
         GameStart();
-
-
+        
+        
     }
 
     protected virtual void GameStart()
