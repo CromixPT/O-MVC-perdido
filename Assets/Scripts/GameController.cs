@@ -11,16 +11,27 @@ public class GameController : MonoBehaviour
     public static event ViewPlayerUpdateEventHandler OnPlayerInfoChange;
 
     public PlayerView playerView;
+    public Sala currentRoom;
+
+    public StoryView storyView;
+
+    [HideInInspector]
     public Player player;
+
+    
 
     // Start is called before the first frame update
     void Awake()
     {
+        player = GetComponent<Player>();
+        storyView = GetComponent<StoryView>();
+        //onGameStart += player.PlayerStart;
 
-        onGameStart += player.PlayerStart;
-        GameStart();
+    }
 
-
+    private void Start()
+    {
+        storyView.ChangeRoom(currentRoom.descricao);
     }
 
     protected virtual void GameStart()

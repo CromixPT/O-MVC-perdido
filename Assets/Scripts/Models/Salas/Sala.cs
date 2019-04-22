@@ -6,9 +6,9 @@ using UnityEngine;
 public class Sala : ScriptableObject
 {
     public string nome;
+
     [TextArea(1, 30)]
     public string descricao;
 
-    
 
 }
