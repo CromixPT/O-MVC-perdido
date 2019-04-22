@@ -600,6 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentRoom: {fileID: 11400000, guid: bfdac67c8b2d7da459630cc55cb5686b, type: 2}
+  inputField: {fileID: 404786773}
 --- !u!4 &797961324
 Transform:
   m_ObjectHideFlags: 0

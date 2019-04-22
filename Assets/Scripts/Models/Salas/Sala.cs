@@ -10,5 +10,7 @@ public class Sala : ScriptableObject
     [TextArea(1, 30)]
     public string descricao;
 
+    public Sala[] saidas ;
+
 
 }

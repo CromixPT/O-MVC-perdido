@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class GameController : MonoBehaviour
 
     private Player player;
 
-    
+    public InputField inputField;
 
     // Start is called before the first frame update
     void Awake()
@@ -26,6 +27,24 @@ public class GameController : MonoBehaviour
         player = GetComponent<Player>();
         storyView = GetComponent<StoryView>();
 
+        inputField.onEndEdit.AddListener(AcceptStringInput);
+
+    }
+    void AcceptStringInput(string userInput)
+    {
+        userInput = userInput.ToLower();
+        for (int i = 0; i < currentRoom.saidas.Length; i++)
+        {
+            if (currentRoom.saidas[i].nome.ToLower().Contains(userInput))
+            {                
+                currentRoom = currentRoom.saidas[i];
+                Debug.Log("Current room: " + currentRoom);
+                storyView.ChangeRoom(currentRoom.descricao);
+            }
+        }
+
+        inputField.ActivateInputField();
+        inputField.text = null;
     }
 
     private void Start()
@@ -33,6 +52,8 @@ public class GameController : MonoBehaviour
         GameStart();
         storyView.ChangeRoom(currentRoom.descricao);
     }
+
+
 
     protected virtual void GameStart()
     {
