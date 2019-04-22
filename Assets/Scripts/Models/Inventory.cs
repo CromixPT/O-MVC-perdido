@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Inventory : ScriptableObject
+public class Inventory
 {
 
     public List<Item> characterItems = new List<Item>();
@@ -14,18 +14,20 @@ public class Inventory : ScriptableObject
 
 
     public void AddItem(int id)
-    {        
+    {
         Item itemToAdd = itemDatabase.GetItem(id);
         characterItems.Add(itemToAdd);
-        Debug.Log("Added item: " + itemToAdd.title);          
+        InventoryUpdate();
+        Debug.Log("Added item: " + itemToAdd.title);
     }
 
     public void AddItem(string itemName)
-    {       
-         Item itemToAdd = itemDatabase.GetItem(itemName);
-         characterItems.Add(itemToAdd);
-         Debug.Log("Added item: " + itemToAdd.title);
-        
+    {
+        Item itemToAdd = itemDatabase.GetItem(itemName);
+        characterItems.Add(itemToAdd);
+        InventoryUpdate();
+        Debug.Log("Added item: " + itemToAdd.title);
+
     }
 
     public Item CheckForItem(int id)
@@ -39,16 +41,17 @@ public class Inventory : ScriptableObject
 
     public void RemoveItem(int id)
     {
-        
+
         Item itemToRemove = CheckForItem(id);
         if (itemToRemove != null)
         {
             characterItems.Remove(itemToRemove);
+            InventoryUpdate();
             Debug.Log("Removed item: " + itemToRemove.title);
-        }              
+        }
     }
 
-    private void InventoryUpdate()
+    public void InventoryUpdate()
     {
         if (OnInventoryInfoChange != null)
             OnInventoryInfoChange(this, EventArgs.Empty);
