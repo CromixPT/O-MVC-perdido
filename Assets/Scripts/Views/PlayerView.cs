@@ -12,10 +12,8 @@ public class PlayerView : MonoBehaviour
         Player.OnPlayerInfoChange += UpdateView;
     }
 
-    public void UpdateView(object source, EventArgs args)
+    public void UpdateView(int life, int attackPower)
     {
-        //cast de object para player para conseguir ler os atributos.
-        var player = (Player)source;
-        playerText.text = "Vida: \t" + player.life.ToString() + "\n" + "Ataque: \t" + player.attackPower.ToString();
+        playerText.text = "Vida: \t" + life.ToString() + "\n" + "Ataque: \t" + attackPower.ToString();
     }
 }

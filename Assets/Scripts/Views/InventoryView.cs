@@ -14,18 +14,15 @@ public class InventoryView : MonoBehaviour
         Inventory.OnInventoryInfoChange += UpdateView;
     }
 
-    private void UpdateView(object source, EventArgs args)
+    private void UpdateView(List<Item> characterItems)
     {
-        //cast de object de inventory para conseguir ler a lista de items.
-        var inventory = (Inventory)source;
-        inventoryText.text = ListaItems(inventory);
+        inventoryText.text = ListaItems(characterItems);
     }
 
-    private string ListaItems(Inventory inventory)
+    private string ListaItems(List<Item> characterItems)
     {
-        List<Item> aux = inventory.characterItems;
         string lista = "";
-        foreach (var item in aux)
+        foreach (var item in characterItems)
         {
             lista += "- " + item.title + "\n";
         }
