@@ -9,7 +9,7 @@ public class Inventory
     public List<Item> characterItems = new List<Item>();
     public ItemDatabase itemDatabase;
 
-    public delegate void ViewInventoryUpdateEventHandler(object source, EventArgs args);
+    public delegate void ViewInventoryUpdateEventHandler(List<Item> characterItems);
     public static event ViewInventoryUpdateEventHandler OnInventoryInfoChange;
 
 
@@ -32,9 +32,9 @@ public class Inventory
 
     public Item CheckForItem(int id)
     {
-        if (id < 0 || id >= characterItems.Count)
+        if (id >= characterItems.Count)
         {
-            throw new IndexOutOfRangeException("int < 0 || int >= characterItems.Count");
+            throw new IndexOutOfRangeException("Numero de items ");
         }
         return characterItems.Find(item => item.id == id);
     }
@@ -54,6 +54,6 @@ public class Inventory
     public void InventoryUpdate()
     {
         if (OnInventoryInfoChange != null)
-            OnInventoryInfoChange(this, EventArgs.Empty);
+            OnInventoryInfoChange(characterItems);
     }
 }

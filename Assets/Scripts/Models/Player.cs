@@ -6,14 +6,14 @@ public class Player : MonoBehaviour
     public int life { get; set; }
     public int attackPower { get; set; }
 
-    public delegate void ViewPlayerUpdateEventHandler(object source, EventArgs args);
+    public delegate void ViewPlayerUpdateEventHandler(int life, int attackPower);
     public static event ViewPlayerUpdateEventHandler OnPlayerInfoChange;
     public static event ViewPlayerUpdateEventHandler OnPlayerDead;
 
     public void PlayerStart()
     {
         life = 100;
-        attackPower = 100;
+        attackPower = 2;
         PlayerInfoUpdate();
     }
 
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         life += quantity;
         if (life <= 0)
         {
-            life = 0;
+            life = 0;            
             PlayerDead();
         }
         
@@ -33,15 +33,30 @@ public class Player : MonoBehaviour
         PlayerInfoUpdate();
     }
 
+    public void PlayerAttackChange(int quantity)
+    {
+        attackPower += quantity;
+        if (life <= 2)
+        {
+            life = 2;            
+        }
+
+        else if (life > 12)
+        {
+            life = 12;
+        }
+        PlayerInfoUpdate();
+    }
+
     public void PlayerInfoUpdate()
     {
         if (OnPlayerInfoChange != null)
-            OnPlayerInfoChange(this, EventArgs.Empty);
+            OnPlayerInfoChange(life, attackPower);
     }
 
     public void PlayerDead()
     {
         if (OnPlayerDead != null)
-            OnPlayerDead(this, EventArgs.Empty);
+            OnPlayerDead(0, 0);
     }
 }
