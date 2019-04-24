@@ -7,7 +7,7 @@ public class Inventory
 {
 
     public List<Item> characterItems = new List<Item>();
-    public ItemDatabase itemDatabase;
+    public ItemDatabase itemDatabase = ScriptableObject.CreateInstance<ItemDatabase>();
 
     public delegate void ViewInventoryUpdateEventHandler(List<Item> characterItems);
     public static event ViewInventoryUpdateEventHandler OnInventoryInfoChange;
