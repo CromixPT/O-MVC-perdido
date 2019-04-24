@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 184759384}
   m_Layer: 0
   m_Name: Dado1
-  m_TagString: Untagged
+  m_TagString: Dado1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,9 +185,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184759381}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.6, y: -2.9, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.6, y: -2.9, z: -0}
+  m_LocalScale: {x: 0.40000004, y: 0.40000004, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 184759381}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72b8bd4353339b54b81bf560d0758f53, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c8a7af3268d5c042b9fe69cc5ee22bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &201109808
@@ -215,6 +215,8 @@ GameObject:
   - component: {fileID: 201109809}
   - component: {fileID: 201109811}
   - component: {fileID: 201109810}
+  - component: {fileID: 201109812}
+  - component: {fileID: 201109813}
   m_Layer: 5
   m_Name: EnemyText
   m_TagString: Untagged
@@ -284,6 +286,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201109808}
   m_CullTransparentMesh: 0
+--- !u!114 &201109812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201109808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d73ce97cef5f342bc15287f36718ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &201109813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201109808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b8bd4353339b54b81bf560d0758f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  dado: {fileID: 184759384}
 --- !u!1 &358890518
 GameObject:
   m_ObjectHideFlags: 0
