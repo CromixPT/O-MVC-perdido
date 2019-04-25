@@ -4,16 +4,18 @@ using UnityEngine.UI;
 
 public class PlayerView : MonoBehaviour
 {
-    private Text playerText;
+    
+    public Text PlayerText;
 
     private void Awake()
     {
-        playerText = GetComponent<Text>();
+        PlayerText = GetComponent<Text>();
         Player.OnPlayerInfoChange += UpdateView;
     }
 
     public void UpdateView(int life, int attackPower)
     {
-        playerText.text = "Vida: \t" + life.ToString() + "\n" + "Ataque: \t" + attackPower.ToString();
+        PlayerText = GameObject.Find("PlayerText").GetComponent<Text>();
+        PlayerText.text = "Vida: \t" + life.ToString() + "\n" + "Ataque: \t" + attackPower.ToString();
     }
 }

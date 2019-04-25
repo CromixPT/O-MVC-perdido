@@ -312,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   dado: {fileID: 184759384}
+  valor_dado: 0
 --- !u!1 &358890518
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +324,7 @@ GameObject:
   - component: {fileID: 358890519}
   - component: {fileID: 358890521}
   - component: {fileID: 358890520}
+  - component: {fileID: 358890522}
   m_Layer: 5
   m_Name: InventoryText
   m_TagString: Untagged
@@ -392,6 +394,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 358890518}
   m_CullTransparentMesh: 0
+--- !u!114 &358890522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358890518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a132a0d1ce6af47958fde9d5db08d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &404786771
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +727,7 @@ GameObject:
   - component: {fileID: 797961324}
   - component: {fileID: 797961323}
   - component: {fileID: 797961325}
+  - component: {fileID: 797961326}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -761,6 +776,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisplayText: {fileID: 1930382042}
+--- !u!114 &797961326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797961322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9631b60ef35b05f4d951fc697be09e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &876898057
 GameObject:
   m_ObjectHideFlags: 0
