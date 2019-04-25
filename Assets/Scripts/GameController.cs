@@ -4,19 +4,18 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-
+    //Delegates/Eventos do Controller
     public delegate void GameStartEventHandler();
     public static event GameStartEventHandler onGameStart;
 
     public delegate void RoomChangeEventHandler(Sala newRoom);
     public static event RoomChangeEventHandler onRoomChange;
 
+    //Atributos do Controller
     private StoryView storyView;
     private PlayerView playerView;
     private InventoryView inventoryView;
     private Player player;
-
-
     private Inventory inventory;
     public InputField inputField;
 
@@ -24,26 +23,20 @@ public class GameController : MonoBehaviour
     {
         //Inicialização dos componentes do jogo
         inventory = new Inventory();
-
-
         player = GetComponent<Player>();
         storyView = GameObject.Find("StoryText").GetComponent<StoryView>();
         playerView = GameObject.Find("PlayerText").GetComponent<PlayerView>();
         inventoryView = GameObject.Find("InventoryText").GetComponent<InventoryView>();
-
-
-
-        //Subscrição de eventos feita pelo controller para garantir fluxo
+        
+        //Subscrição de eventos do Player(Model)
         Player.OnRoomUpdate += storyView.ChangeRoom;
         Player.OnPlayerInfoChange += playerView.UpdateView;
 
-
-
+        //Subscrição de eventos do Controller
         onGameStart += player.PlayerStart;
         onRoomChange += player.RoomUpdate;
 
-
-        //Subscrição do evento de inventario e da inventoryView, ainda nao funcional.
+        //Subscrição de eventos do inventario
         Inventory.OnInventoryInfoChange += inventoryView.UpdateView;
 
         //Subscrição de evento de sistema(API) para receber Input
@@ -55,8 +48,6 @@ public class GameController : MonoBehaviour
         //Inicializa jogo
         GameStart();
         inputField.ActivateInputField();
-
-
     }
 
     protected virtual void GameStart()
@@ -65,8 +56,8 @@ public class GameController : MonoBehaviour
         {
             onGameStart();
         }
-
     }
+
 
     void AcceptStringInput(string userInput)
     {
@@ -83,11 +74,9 @@ public class GameController : MonoBehaviour
                 ChangeRoom(currentRoom);
             }
         }
-
         inputField.ActivateInputField();
         inputField.text = null;
     }
-
 
     protected void ChangeRoom(Sala currentRoom)
     {
