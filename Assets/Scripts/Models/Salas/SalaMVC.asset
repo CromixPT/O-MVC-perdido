@@ -14,6 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nome: salamvc
   descricao: Estas na sala do MVC....
-  saidas:
-  - {fileID: 11400000, guid: a82450b8c337f694fb1906221cf0c78a, type: 2}
-  - {fileID: 11400000, guid: bfdac67c8b2d7da459630cc55cb5686b, type: 2}
+  saidas: []
