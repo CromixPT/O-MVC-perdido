@@ -8,38 +8,80 @@ public class GameController : MonoBehaviour
     public delegate void GameStartEventHandler();
     public static event GameStartEventHandler onGameStart;
 
-    //public delegate void ViewPlayerUpdateEventHandler(object source, EventArgs args);
-    //public static event ViewPlayerUpdateEventHandler OnPlayerInfoChange;
+    public delegate void RoomChangeEventHandler(Sala newRoom);
+    public static event RoomChangeEventHandler onRoomChange;
 
-
-    public Sala currentRoom;
     private StoryView storyView;
     private PlayerView playerView;
-
+    private InventoryView inventoryView;
     private Player player;
 
+
+    private Inventory inventory;
     public InputField inputField;
 
-    // Start is called before the first frame update
     void Awake()
     {
+        //Inicialização dos componentes do jogo
+        inventory = new Inventory();
+
 
         player = GetComponent<Player>();
-        storyView = GetComponent<StoryView>();
+        storyView = GameObject.Find("StoryText").GetComponent<StoryView>();
+        playerView = GameObject.Find("PlayerText").GetComponent<PlayerView>();
+        inventoryView = GameObject.Find("InventoryText").GetComponent<InventoryView>();
 
+
+
+        //Subscrição de eventos feita pelo controller para garantir fluxo
+        //Player.onRoomUpdate += storyView.ChangeRoom;
+        Player.OnPlayerInfoChange += playerView.UpdateView;
+
+
+
+        onGameStart += player.PlayerStart;
+        //onRoomChange += player.RoomChange;
+
+
+        //Subscrição do evento de inventario e da inventoryView, ainda nao funcional.
+        Inventory.OnInventoryInfoChange += inventoryView.UpdateView;
+
+        //Subscrição de evento de sistema(API) para receber Input
         inputField.onEndEdit.AddListener(AcceptStringInput);
+    }
+
+    private void Start()
+    {
+        //Inicializa jogo
+        GameStart();
+        inputField.ActivateInputField();
+
 
     }
+
+    protected virtual void GameStart()
+    {
+        if (onGameStart != null)
+        {
+            onGameStart();
+        }
+
+    }
+
     void AcceptStringInput(string userInput)
     {
+        //Obter a sala atual 
+        //Sala currentRoom = player.CurrentRoom();
+        Sala currentRoom = ScriptableObject.CreateInstance<Sala>();
         userInput = userInput.ToLower();
+
+        //Para cada saida existente valida se o input contem o id de sala
         for (int i = 0; i < currentRoom.saidas.Length; i++)
         {
-            if (currentRoom.saidas[i].nome.ToLower().Contains(userInput))
-            {                
-                currentRoom = currentRoom.saidas[i];
-                Debug.Log("Current room: " + currentRoom);
-                storyView.ChangeRoom(currentRoom.descricao);
+            if (userInput.Contains(currentRoom.saidas[i].id.ToLower()))
+            {
+                currentRoom = currentRoom.saidas[i].salaSeguinte;
+                ChangeRoom(currentRoom);
             }
         }
 
@@ -47,19 +89,12 @@ public class GameController : MonoBehaviour
         inputField.text = null;
     }
 
-    private void Start()
+
+    protected void ChangeRoom(Sala currentRoom)
     {
-        GameStart();
-        storyView.ChangeRoom(currentRoom.descricao);
-    }
-
-
-
-    protected virtual void GameStart()
-    {
-        if (onGameStart != null)
+        if (onRoomChange != null)
         {
-            onGameStart();
+            onRoomChange(currentRoom);
         }
     }
 
