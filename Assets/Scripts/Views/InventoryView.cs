@@ -10,13 +10,12 @@ public class InventoryView : MonoBehaviour
 
     private void Awake()
     {
-        InventoryText = GetComponent<Text>();
+        InventoryText = GameObject.Find("InventoryText").GetComponent<Text>();
         Inventory.OnInventoryInfoChange += UpdateView;
     }
 
     private void UpdateView(List<Item> characterItems)
     {
-        InventoryText = GameObject.Find("InventoryText").GetComponent<Text>();
         InventoryText.text = ListaItems(characterItems);
     }
 
