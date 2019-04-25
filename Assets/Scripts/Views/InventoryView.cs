@@ -6,15 +6,14 @@ using UnityEngine.UI;
 
 public class InventoryView : MonoBehaviour
 {
-    private Text InventoryText;
+    public Text InventoryText;
 
     private void Awake()
     {
         InventoryText = GameObject.Find("InventoryText").GetComponent<Text>();
-        Inventory.OnInventoryInfoChange += UpdateView;
     }
 
-    private void UpdateView(List<Item> characterItems)
+    public void UpdateView(List<Item> characterItems)
     {
         InventoryText.text = ListaItems(characterItems);
     }

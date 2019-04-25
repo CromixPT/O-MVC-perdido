@@ -10,7 +10,6 @@ public class PlayerView : MonoBehaviour
     private void Awake()
     {
         PlayerText = GameObject.Find("PlayerText").GetComponent<Text>();
-        Player.OnPlayerInfoChange += UpdateView;
     }
 
     public void UpdateView(int life, int attackPower)
