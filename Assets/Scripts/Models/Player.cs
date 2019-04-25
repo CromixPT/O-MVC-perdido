@@ -18,8 +18,20 @@ public class Player : MonoBehaviour
         PlayerInfoUpdate();
     }
 
+    //metodo publico para alteração da vida
+    public void LifeUpdate(int quantity)
+    {
+        PlayerLifeChange(quantity);
+    }
+    
+    // método publico para alteração do poder de ataque
+    public void PowerUpdate(int quantity)
+    {
+        PlayerAttackChange(quantity);
+    }
+
     // altera a variavel life e lança event 
-    public void PlayerLifeChange(int quantity)
+    private void PlayerLifeChange(int quantity)
     {
         life += quantity;
         if (life <= 0)
@@ -36,7 +48,7 @@ public class Player : MonoBehaviour
     }
 
     // altera a variavel attackPower e lança event
-    public void PlayerAttackChange(int quantity)
+    private void PlayerAttackChange(int quantity)
     {
         attackPower += quantity;
         if (life <= 2)
@@ -51,22 +63,26 @@ public class Player : MonoBehaviour
         PlayerInfoUpdate();
     }
 
+    // retorna vida
     public int PlayerLife()
     {
         return life;
     }
 
+    // retorna poder
     public int PlayerPower()
     {
         return attackPower;
     }
 
+    // lança evento com alterações ao player 
     public void PlayerInfoUpdate()
     {
         if (OnPlayerInfoChange != null)
             OnPlayerInfoChange(life, attackPower);
     }
 
+    // lança evento após morte do player
     public void PlayerDead()
     {
         if (OnPlayerDead != null)
