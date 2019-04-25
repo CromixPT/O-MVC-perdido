@@ -34,13 +34,13 @@ public class GameController : MonoBehaviour
 
 
         //Subscrição de eventos feita pelo controller para garantir fluxo
-        //Player.onRoomUpdate += storyView.ChangeRoom;
+        Player.OnRoomUpdate += storyView.ChangeRoom;
         Player.OnPlayerInfoChange += playerView.UpdateView;
 
 
 
         onGameStart += player.PlayerStart;
-        //onRoomChange += player.RoomChange;
+        onRoomChange += player.RoomUpdate;
 
 
         //Subscrição do evento de inventario e da inventoryView, ainda nao funcional.
@@ -71,8 +71,7 @@ public class GameController : MonoBehaviour
     void AcceptStringInput(string userInput)
     {
         //Obter a sala atual 
-        //Sala currentRoom = player.CurrentRoom();
-        Sala currentRoom = ScriptableObject.CreateInstance<Sala>();
+        Sala currentRoom = player.CurrentRoom();
         userInput = userInput.ToLower();
 
         //Para cada saida existente valida se o input contem o id de sala

@@ -5,8 +5,7 @@ public class Player : MonoBehaviour
 {
     private int life { get; set; }
     private int attackPower { get; set; }
-    private Sala currentSala { get; set; }
-    public string sala;
+    public Sala currentSala;
 
     public delegate void ViewPlayerUpdateEventHandler(int life, int attackPower);
     public static event ViewPlayerUpdateEventHandler OnPlayerInfoChange;
@@ -17,8 +16,6 @@ public class Player : MonoBehaviour
     // inicializa as variaveis e lança event
     public void PlayerStart()
     {
-        currentSala = GameObject.Find("SalaInicial").GetComponent<Sala>();
-        sala = currentSala.nome;
         life = 100;
         attackPower = 2;
         PlayerInfoUpdate();
@@ -80,7 +77,6 @@ public class Player : MonoBehaviour
     private void RoomChange(Sala room)
     {
         currentSala = room;
-        sala = currentSala.nome;
         ActualRoom();
     }
 
@@ -120,6 +116,6 @@ public class Player : MonoBehaviour
     public void ActualRoom()
     {
         if (OnRoomUpdate != null)
-            OnRoomUpdate(sala);
+            OnRoomUpdate(currentSala.descricao);
     }
 }
