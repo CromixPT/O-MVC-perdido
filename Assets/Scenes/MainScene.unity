@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8a7af3268d5c042b9fe69cc5ee22bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dado1: {fileID: 0}
 --- !u!1 &201109808
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,8 +216,6 @@ GameObject:
   - component: {fileID: 201109809}
   - component: {fileID: 201109811}
   - component: {fileID: 201109810}
-  - component: {fileID: 201109812}
-  - component: {fileID: 201109813}
   m_Layer: 5
   m_Name: EnemyText
   m_TagString: Untagged
@@ -286,33 +285,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201109808}
   m_CullTransparentMesh: 0
---- !u!114 &201109812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201109808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1d73ce97cef5f342bc15287f36718ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &201109813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201109808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72b8bd4353339b54b81bf560d0758f53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  dado: {fileID: 184759384}
-  valor_dado: 0
 --- !u!1 &358890518
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +468,18 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 879079609}
+        m_MethodName: Text_Changed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
@@ -867,6 +850,10 @@ GameObject:
   - component: {fileID: 879079604}
   - component: {fileID: 879079603}
   - component: {fileID: 879079602}
+  - component: {fileID: 879079609}
+  - component: {fileID: 879079608}
+  - component: {fileID: 879079607}
+  - component: {fileID: 879079606}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -959,6 +946,66 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &879079606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879079601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9631b60ef35b05f4d951fc697be09e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSala: {fileID: 11400000, guid: bfdac67c8b2d7da459630cc55cb5686b, type: 2}
+--- !u!114 &879079607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879079601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d73ce97cef5f342bc15287f36718ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &879079608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879079601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8a7af3268d5c042b9fe69cc5ee22bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dado1: {fileID: 184759381}
+--- !u!114 &879079609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879079601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b8bd4353339b54b81bf560d0758f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 879079607}
+  dado: {fileID: 184759384}
+  valor_dado: 0
+  player: {fileID: 879079606}
+  valor_ataque_player: 0
+  valor_vida_inimigo: 0
+  valor_vida_player: 0
+  valor_ataque_inimigo: 0
+  dado1: {fileID: 184759381}
+  input: 
 --- !u!1 &1072258085
 GameObject:
   m_ObjectHideFlags: 0

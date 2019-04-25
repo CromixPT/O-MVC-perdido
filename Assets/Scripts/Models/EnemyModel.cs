@@ -9,7 +9,7 @@ public class EnemyModel : MonoBehaviour
 
     public void Enemy()
     {
-        
+
         life = Random.Range(10, 21);
         attackPower = Random.Range(2, 8);
         Debug.Log("Criei Inimigo com " + life + " de vida e " + attackPower + " de ataque");
@@ -20,10 +20,15 @@ public class EnemyModel : MonoBehaviour
         return attackPower;
     }
 
-    private void Damage(int valor)
+    public int Life()
+    {
+        return life;
+    }
+
+    public void Damage(int valor)
     {
         life -= valor;
-        if(life<1)
+        if (life < 1)
         {
             //Tratar morte jogador
         }

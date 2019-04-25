@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     {
         life = 100;
         attackPower = 2;
+        Debug.Log("Criei Jogador com " + life + " de vida e " + attackPower + " de ataque");
         PlayerInfoUpdate();
         ActualRoom();
     }    

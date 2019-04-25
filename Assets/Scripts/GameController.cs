@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     private Player player;
     private Inventory inventory;
     public InputField inputField;
+    private CombatController gamec;
 
     void Awake()
     {
@@ -27,6 +28,7 @@ public class GameController : MonoBehaviour
         storyView = GameObject.Find("StoryText").GetComponent<StoryView>();
         playerView = GameObject.Find("PlayerText").GetComponent<PlayerView>();
         inventoryView = GameObject.Find("InventoryText").GetComponent<InventoryView>();
+        gamec = GetComponent<CombatController>();
         
         //Subscrição de eventos do Player(Model)
         Player.OnRoomUpdate += storyView.ChangeRoom;
