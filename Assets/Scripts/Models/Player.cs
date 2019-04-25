@@ -3,20 +3,27 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int life { get; set; }
-    public int attackPower { get; set; }
+    private int life { get; set; }
+    private int attackPower { get; set; }
+    private Sala currentSala { get; set; }
+    public string sala;
 
     public delegate void ViewPlayerUpdateEventHandler(int life, int attackPower);
     public static event ViewPlayerUpdateEventHandler OnPlayerInfoChange;
     public static event ViewPlayerUpdateEventHandler OnPlayerDead;
 
+    public delegate void StoryViewUpdateEventHandler(string sala);
+    public static event StoryViewUpdateEventHandler OnRoomUpdate;
     // inicializa as variaveis e lança event
     public void PlayerStart()
     {
+        currentSala = GameObject.Find("SalaInicial").GetComponent<Sala>();
+        sala = currentSala.nome;
         life = 100;
         attackPower = 2;
         PlayerInfoUpdate();
-    }
+        ActualRoom();
+    }    
 
     //metodo publico para alteração da vida
     public void LifeUpdate(int quantity)
@@ -28,6 +35,12 @@ public class Player : MonoBehaviour
     public void PowerUpdate(int quantity)
     {
         PlayerAttackChange(quantity);
+    }
+
+    // metodo publico para alteração de sala
+    public void RoomUpdate(Sala sala)
+    {
+        RoomChange(sala);
     }
 
     // altera a variavel life e lança event 
@@ -63,6 +76,14 @@ public class Player : MonoBehaviour
         PlayerInfoUpdate();
     }
 
+    // metodo privado para alteração de sala
+    private void RoomChange(Sala room)
+    {
+        currentSala = room;
+        sala = currentSala.nome;
+        ActualRoom();
+    }
+
     // retorna vida
     public int PlayerLife()
     {
@@ -73,6 +94,12 @@ public class Player : MonoBehaviour
     public int PlayerPower()
     {
         return attackPower;
+    }
+
+    // retorna sala actual
+    public Sala CurrentRoom()
+    {
+        return currentSala;
     }
 
     // lança evento com alterações ao player 
@@ -87,5 +114,12 @@ public class Player : MonoBehaviour
     {
         if (OnPlayerDead != null)
             OnPlayerDead(0, 0);
+    }
+
+    // lança evento após actualização da sala
+    public void ActualRoom()
+    {
+        if (OnRoomUpdate != null)
+            OnRoomUpdate(sala);
     }
 }
