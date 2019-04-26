@@ -146,7 +146,7 @@ public class CombatController : MonoBehaviour
             else if (valor_ataque_player < valor_ataque_inimigo)
             {
                 Debug.Log("Jogador perde " + (valor_ataque_inimigo - valor_ataque_player));
-                if (onEnemyDamage != null)
+                if (onPlayerDamage != null)
                 {
                     onPlayerDamage(valor_ataque_player - valor_ataque_inimigo);
                 }
