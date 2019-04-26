@@ -28,12 +28,13 @@ public class ItemDatabase : ScriptableObject
         items = new List<Item>() {
             new Item("Poção de vida", " ",
             new Dictionary<string, int> {
-                { "Power", 15 },
-                { "Defence", 10 }
+                { "Life", 50 },
+                { "Power", 2 }
             }),
             new Item("Poção de força", " ",
             new Dictionary<string, int> {
-                { "Value", 300 }
+                { "Life", 2 },
+                { "Power", 10 }
             }),
             new Item("Silver Pick", "A pick that could kill a vampire.",
             new Dictionary<string, int> {
