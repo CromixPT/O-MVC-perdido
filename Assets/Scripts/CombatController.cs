@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CombatController : MonoBehaviour
 {
+    //Delegates e events do controller
     public delegate void OnCombatStartEventHandler();
     public static event OnCombatStartEventHandler onCombatStart;
 
@@ -29,6 +30,7 @@ public class CombatController : MonoBehaviour
     public delegate int OnDiceRoll();
     public static event OnDiceRoll onDiceRoll;
 
+    //Atributos
     public EnemyModel enemy;
     public Dados dado;
     public int valor_dado;
@@ -38,9 +40,7 @@ public class CombatController : MonoBehaviour
     public int valor_vida_player = 0;
     public int valor_ataque_inimigo = 0;
     public GameObject dado1;
-
     public string input;
-
     public static int jogador = 1;
 
 
@@ -51,6 +51,8 @@ public class CombatController : MonoBehaviour
         dado1 = GameObject.FindWithTag("Dado1");
         dado1.GetComponent<Renderer>().enabled = false;
         enemy = GetComponent<EnemyModel>();
+
+        //Subscrição eventos do controller
         onCombatStart += enemy.Enemy;
         onCombatStart += player.PlayerStart;
         onEnemyPower += enemy.AttackPower;
@@ -65,8 +67,7 @@ public class CombatController : MonoBehaviour
 
     void Start()
     {
-        CombatStart();
-        //luta();         
+        CombatStart();         
     }
 
     protected virtual void CombatStart()
@@ -77,6 +78,7 @@ public class CombatController : MonoBehaviour
         }
     }
 
+    //Entrada de texto de teste
     public void Text_Changed(string entrada)
     {
         input = entrada.ToLower();
@@ -84,6 +86,7 @@ public class CombatController : MonoBehaviour
         {
 
             luta();
+            //Mostrar o dado depois do comando de rolar o dado
             dado1.GetComponent<Renderer>().enabled = true;
         }
 
@@ -111,7 +114,7 @@ public class CombatController : MonoBehaviour
             }
             jogador = 2;
         }
-
+        //Rolar dados para o jogador
         else if (CombatController.jogador == 2)
         {
             Debug.Log("Cálculo valores jogador");
@@ -125,7 +128,8 @@ public class CombatController : MonoBehaviour
                     Debug.Log("Valor do poder de ataque com o dado" + (valor_ataque_player));
                 }
             }
-            if (valor_ataque_player > valor_ataque_inimigo)
+            //Atribuição de dano do combate
+            if (valor_ataque_player >= valor_ataque_inimigo)
             {
                 Debug.Log("Inimigo perde " + (valor_ataque_player - valor_ataque_inimigo));
                 if (onEnemyDamage != null)
@@ -163,6 +167,7 @@ public class CombatController : MonoBehaviour
             }
             jogador = 1;
         }
+        //Esconder o dado
         dado1.GetComponent<Renderer>().enabled = false;
 
     }
