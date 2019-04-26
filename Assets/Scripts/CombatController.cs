@@ -53,7 +53,6 @@ public class CombatController : MonoBehaviour
         player = GetComponent<Player>();
         enemy = GetComponent<EnemyModel>();
         onCombatStart += enemy.Enemy;
-        onCombatStart += player.PlayerStart;
         onEnemyPower += enemy.AttackPower;
         onPlayerPower += player.PlayerPower;
         onPlayerLife += player.PlayerLife;

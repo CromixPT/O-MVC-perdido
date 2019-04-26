@@ -10,18 +10,15 @@ public class Dados : MonoBehaviour
     public static int valor;
     public GameObject dado1;
 
-    // Start is called before the first frame update
-    /*void Awake()
-    {
-        dado1 = GameObject.FindWithTag("Dado1");
-        dado1.GetComponent<Renderer>().enabled = false;
-    }*/
-
     void Start()
     {
         mostrar = GetComponent<SpriteRenderer>();
         lados = Resources.LoadAll<Sprite>("Dados/");
-        mostrar.sprite = lados[0];
+        if(lados[0]!=null)
+        {
+            mostrar.sprite = lados[0];
+        }
+        
         jogar();
     }
 
