@@ -50,9 +50,9 @@ public class CombatController : MonoBehaviour
     {
         dado1 = GameObject.FindWithTag("Dado1");
         dado1.GetComponent<Renderer>().enabled = false;
-        player = GetComponent<Player>();
         enemy = GetComponent<EnemyModel>();
         onCombatStart += enemy.Enemy;
+        onCombatStart += player.PlayerStart;
         onEnemyPower += enemy.AttackPower;
         onPlayerPower += player.PlayerPower;
         onPlayerLife += player.PlayerLife;
