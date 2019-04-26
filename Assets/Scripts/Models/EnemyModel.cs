@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyModel : MonoBehaviour
 {
-    public int life { get; set; }
-    public int attackPower { get; set; }
+    private int life { get; set; }
+    private int attackPower { get; set; }
 
     public void Enemy()
     {
