@@ -95,10 +95,8 @@ public class CombatController : MonoBehaviour
     public void luta()
     {
         //Inicializar combate
-
         Debug.Log("Iniciei Combate com jogador " + CombatController.jogador);
         //Rolar dados para inimigo
-
         if (CombatController.jogador == 1)
         {
             Debug.Log("Cálculo valores Inimigo");
