@@ -66,14 +66,16 @@ public class GameController : MonoBehaviour
         //Obter a sala atual 
         Sala currentRoom = player.CurrentRoom();
         userInput = userInput.ToLower();
-
-        //Para cada saida existente valida se o input contem o id de sala
-        for (int i = 0; i < currentRoom.saidas.Length; i++)
-        {
-            if (userInput.Contains(currentRoom.saidas[i].id.ToLower()))
+        if(currentRoom.saidas.leght >0 )
+        {   
+            //Para cada saida existente valida se o input contem o id de sala
+            for (int i = 0; i < currentRoom.saidas.Length; i++)
             {
-                currentRoom = currentRoom.saidas[i].salaSeguinte;
-                ChangeRoom(currentRoom);
+                if (userInput.Contains(currentRoom.saidas[i].id.ToLower()))
+                {
+                    currentRoom = currentRoom.saidas[i].salaSeguinte;
+                    ChangeRoom(currentRoom);
+                }
             }
         }
         inputField.ActivateInputField();

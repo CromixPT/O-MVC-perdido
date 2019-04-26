@@ -12,15 +12,6 @@ public class Inventory
     public delegate void ViewInventoryUpdateEventHandler(List<Item> characterItems);
     public static event ViewInventoryUpdateEventHandler OnInventoryInfoChange;
 
-
-    public void AddItem(int id)
-    {
-        Item itemToAdd = itemDatabase.GetItem(id);
-        characterItems.Add(itemToAdd);
-        InventoryUpdate();
-        Debug.Log("Added item: " + itemToAdd.title);
-    }
-
     public void AddItem(string itemName)
     {
         Item itemToAdd = itemDatabase.GetItem(itemName);
@@ -30,19 +21,15 @@ public class Inventory
 
     }
 
-    public Item CheckForItem(int id)
-    {
-        if (id >= characterItems.Count)
-        {
-            throw new IndexOutOfRangeException("Numero de items ");
-        }
-        return characterItems.Find(item => item.id == id);
+    public Item CheckForItem(string itemName)
+    {        
+        return characterItems.Find(item => item.title == itemName);
     }
 
-    public void RemoveItem(int id)
+    public void RemoveItem(string itemName)
     {
 
-        Item itemToRemove = CheckForItem(id);
+        Item itemToRemove = CheckForItem(itemName);
         if (itemToRemove != null)
         {
             characterItems.Remove(itemToRemove);

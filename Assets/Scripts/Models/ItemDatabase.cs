@@ -13,15 +13,6 @@ public class ItemDatabase : ScriptableObject
         BuildDatabase();
     }
 
-    public Item GetItem(int id)
-    {
-        if (id < 0 || id >= items.Count)
-        {
-            throw new ArgumentOutOfRangeException("int < 0 || int >= items.Count");
-        }
-        return items.Find(item => item.id == id);
-    }
-
     public Item GetItem(string itemName)
     {
         if (!items.Exists(item => item.title == itemName))
@@ -35,16 +26,17 @@ public class ItemDatabase : ScriptableObject
     {
         // exemplos, items a definir
         items = new List<Item>() {
-            new Item(0, "Diamond Sword", "A sword made of diamond.",
+            new Item("Poção de vida", " ",
             new Dictionary<string, int> {
-                { "Power", 15 },
-                { "Defence", 10 }
+                { "Life", 50 },
+                { "Power", 2 }
             }),
-            new Item(1, "Diamond Ore", "A pretty diamond.",
+            new Item("Poção de força", " ",
             new Dictionary<string, int> {
-                { "Value", 300 }
+                { "Life", 2 },
+                { "Power", 10 }
             }),
-            new Item(2, "Silver Pick", "A pick that could kill a vampire.",
+            new Item("Silver Pick", "A pick that could kill a vampire.",
             new Dictionary<string, int> {
                 { "Power", 5 },
                 { "Mining", 20}

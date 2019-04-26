@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
     public delegate void StoryViewUpdateEventHandler(string sala);
     public static event StoryViewUpdateEventHandler OnRoomUpdate;
+
     // inicializa as variaveis e lança event
     public void PlayerStart()
     {
