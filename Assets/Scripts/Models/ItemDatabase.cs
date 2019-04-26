@@ -13,15 +13,17 @@ public class ItemDatabase : ScriptableObject
         BuildDatabase();
     }
 
+    // Verifica a existência de Item na Base de Dados
     public Item GetItem(string itemName)
     {
         if (!items.Exists(item => item.title == itemName))
         {
-            throw new ArgumentNullException("string nao encontrada");
+            throw new ArgumentNullException("Item não encontrado na Base de Dados");
         }
         return items.Find(item => item.title == itemName);                 
     }
 
+    // Constroi Base de Dados
     void BuildDatabase()
     {
         // exemplos, items a definir
