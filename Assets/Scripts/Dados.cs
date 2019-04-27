@@ -9,7 +9,6 @@ public class Dados : MonoBehaviour
     private bool pode_jogar = true;
     public static int valor;
     public GameObject dado1;
-
     void Start()
     {
         mostrar = GetComponent<SpriteRenderer>();
@@ -17,8 +16,7 @@ public class Dados : MonoBehaviour
         if(lados[0]!=null)
         {
             mostrar.sprite = lados[0];
-        }
-        
+        } 
         jogar();
     }
 
@@ -27,9 +25,7 @@ public class Dados : MonoBehaviour
         Start();
         Dados.valor = Random.Range(0, 6);
         return Dados.valor;
-
     }
-
 
     private void jogar()
     {
@@ -39,10 +35,8 @@ public class Dados : MonoBehaviour
         }
     }
 
-
     private IEnumerator lancar_dados()
     {
-
         pode_jogar = false;
         int valor = 0;
         for (int i = 0; i < 15; i++)
