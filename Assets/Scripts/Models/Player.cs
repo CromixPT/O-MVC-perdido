@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -17,32 +18,32 @@ public class Player : MonoBehaviour
     // inicializa as variaveis e lança event
     public void PlayerStart()
     {
-        life = 100;
-        attackPower = 2;
+        life = Random.Range(40, 80);
+        attackPower = Random.Range(2, 8);
         Debug.Log("Criei Jogador com " + life + " de vida e " + attackPower + " de ataque");
         PlayerInfoUpdate();
         ActualRoom();
     }    
 
-    //metodo publico para alteração da vida
+    //Metodo publico para alteração da vida
     public void LifeUpdate(int quantity)
     {
         PlayerLifeChange(quantity);
     }
     
-    // método publico para alteração do poder de ataque
+    // Método publico para alteração do poder de ataque
     public void PowerUpdate(int quantity)
     {
         PlayerAttackChange(quantity);
     }
 
-    // metodo publico para alteração de sala
+    // Metodo publico para alteração de sala
     public void RoomUpdate(Sala sala)
     {
         RoomChange(sala);
     }
 
-    // altera a variavel life e lança event 
+    // Altera a variavel life e lança event 
     private void PlayerLifeChange(int quantity)
     {
         life += quantity;
@@ -59,36 +60,36 @@ public class Player : MonoBehaviour
         PlayerInfoUpdate();
     }
 
-    // altera a variavel attackPower e lança event
+    // Altera a variavel attackPower e lança event
     private void PlayerAttackChange(int quantity)
     {
         attackPower += quantity;
-        if (life <= 2)
+        if (attackPower <= 2)
         {
-            life = 2;            
+            attackPower = 2;            
         }
 
-        else if (life > 12)
+        else if (attackPower > 12)
         {
-            life = 12;
+            attackPower = 12;
         }
         PlayerInfoUpdate();
     }
 
-    // metodo privado para alteração de sala
+    // Metodo privado para alteração de sala
     private void RoomChange(Sala room)
-    {
+    {        
         currentSala = room;
         ActualRoom();
     }
 
-    // retorna vida
+    // Retorna vida
     public int PlayerLife()
     {
         return life;
     }
 
-    // retorna poder
+    // Retorna poder
     public int PlayerPower()
     {
         return attackPower;
@@ -100,21 +101,21 @@ public class Player : MonoBehaviour
         return currentSala;
     }
 
-    // lança evento com alterações ao player 
+    // Lança evento com alterações ao player 
     public void PlayerInfoUpdate()
     {
         if (OnPlayerInfoChange != null)
             OnPlayerInfoChange(life, attackPower);
     }
 
-    // lança evento após morte do player
+    // Lança evento após morte do player
     public void PlayerDead()
     {
         if (OnPlayerDead != null)
             OnPlayerDead(0, 0);
     }
 
-    // lança evento após actualização da sala
+    // Lança evento após actualização da sala
     public void ActualRoom()
     {
         if (OnRoomUpdate != null)
