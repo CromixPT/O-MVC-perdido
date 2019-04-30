@@ -27,7 +27,7 @@ public class Inventory
     {
         if (!characterItems.Exists(item => item.title == itemName))
         {
-            throw new ArgumentNullException("Item não encontrado no Inventário");
+            throw new ExItemInexistente("Item não encontrado no Inventário");
         }
         return characterItems.Find(item => item.title == itemName);
     }

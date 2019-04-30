@@ -18,7 +18,7 @@ public class ItemDatabase : ScriptableObject
     {
         if (!items.Exists(item => item.title == itemName))
         {
-            throw new ArgumentNullException("Item não encontrado na Base de Dados");
+            throw new ExItemInexistente("Item não encontrado na Base de Dados");
         }
         return items.Find(item => item.title == itemName);                 
     }
