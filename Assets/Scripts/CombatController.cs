@@ -56,8 +56,8 @@ public class CombatController : MonoBehaviour
         onCombatStart += enemy.Enemy;
         onCombatStart += player.PlayerStart;
         onEnemyPower += enemy.AttackPower;
-        onPlayerPower += player.PlayerPower;
-        onPlayerLife += player.PlayerLife;
+        onPlayerPower += player.AttackPower;
+        onPlayerLife += player.Life;
         onEnemyLife += enemy.Life;
         onPlayerDamage += player.LifeUpdate;
         onEnemyDamage += enemy.Damage;
