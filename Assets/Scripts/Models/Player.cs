@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IAtacaAguenta
 {
     private int life { get; set; }
     private int attackPower { get; set; }
@@ -84,13 +84,13 @@ public class Player : MonoBehaviour
     }
 
     // Retorna vida
-    public int PlayerLife()
+    public int Life()
     {
         return life;
     }
 
     // Retorna poder
-    public int PlayerPower()
+    public int AttackPower()
     {
         return attackPower;
     }

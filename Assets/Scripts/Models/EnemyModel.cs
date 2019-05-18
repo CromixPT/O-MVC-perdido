@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyModel : MonoBehaviour
+public class EnemyModel : MonoBehaviour, IAtacaAguenta
 {
     private int life { get; set; }
     private int attackPower { get; set; }
