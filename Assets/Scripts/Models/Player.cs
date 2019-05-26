@@ -95,10 +95,11 @@ public class Player : MonoBehaviour, IAtacaAguenta, IMudarSala
                 if (userInput.Contains(CurrentRoom.saidas[i].id.ToLower()))
                 {
                     CurrentRoom = CurrentRoom.saidas[i].salaSeguinte;
+                    ActualRoom();
                 }
             }
         }
-        ActualRoom();
+
     }
 
     // Retorna vida
