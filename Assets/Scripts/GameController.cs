@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -8,7 +7,7 @@ public class GameController : MonoBehaviour
     public delegate void GameStartEventHandler();
     public static event GameStartEventHandler onGameStart;
 
-    public delegate void RoomChangeEventHandler(Sala newRoom);
+    public delegate void RoomChangeEventHandler(string userInput);
     public static event RoomChangeEventHandler onRoomChange;
 
     //Atributos do Controller
@@ -29,9 +28,9 @@ public class GameController : MonoBehaviour
         playerView = GameObject.Find("PlayerText").GetComponent<PlayerView>();
         inventoryView = GameObject.Find("InventoryText").GetComponent<InventoryView>();
         gamec = GetComponent<CombatController>();
-        
+
         //Subscrição de eventos do Player(Model)
-        Player.OnRoomUpdate += storyView.ChangeRoom;
+        player.OnRoomUpdate += storyView.ChangeRoom;
         Player.OnPlayerInfoChange += playerView.UpdateView;
 
         //Subscrição de eventos do Controller
@@ -63,30 +62,18 @@ public class GameController : MonoBehaviour
 
     void AcceptStringInput(string userInput)
     {
-        //Obter a sala atual 
-        Sala currentRoom = player.CurrentRoom();
+
         userInput = userInput.ToLower();
-        if(currentRoom.saidas.Length>0 )
-        {   
-            //Para cada saida existente valida se o input contem o id de sala
-            for (int i = 0; i < currentRoom.saidas.Length; i++)
-            {
-                if (userInput.Contains(currentRoom.saidas[i].id.ToLower()))
-                {
-                    currentRoom = currentRoom.saidas[i].salaSeguinte;
-                    ChangeRoom(currentRoom);
-                }
-            }
-        }
+        ChangeRoom(userInput);
         inputField.ActivateInputField();
         inputField.text = null;
     }
 
-    protected void ChangeRoom(Sala currentRoom)
+    protected void ChangeRoom(string userInput)
     {
         if (onRoomChange != null)
         {
-            onRoomChange(currentRoom);
+            onRoomChange(userInput);
         }
     }
 

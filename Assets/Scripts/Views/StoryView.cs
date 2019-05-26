@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 
@@ -47,9 +45,9 @@ public class StoryView : MonoBehaviour
 
     }
 
-    public void ChangeRoom(string txtChangeRoom)
+    public void ChangeRoom(object sender, string e)
     {
-        LogString(txtChangeRoom + "\n");
+        LogString(e + "\n");
 
     }
 
@@ -65,9 +63,9 @@ public class StoryView : MonoBehaviour
             DisplayText.text += stringToAdd + "\n";
         }
     }
-    
 
-    
+
+
 
     private void Update()
     {

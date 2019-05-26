@@ -1,36 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IAtacaAguenta
+public class Player : MonoBehaviour, IAtacaAguenta, IMudarSala
 {
     private int life { get; set; }
     private int attackPower { get; set; }
-    public Sala currentSala;
+
+
+    [SerializeField]
+    private Sala Room;
+
+    public Sala CurrentRoom
+    {
+        get { return this.Room; }
+        set { Room = value; }
+    }
 
     public delegate void ViewPlayerUpdateEventHandler(int life, int attackPower);
     public static event ViewPlayerUpdateEventHandler OnPlayerInfoChange;
     public static event ViewPlayerUpdateEventHandler OnPlayerDead;
 
-    public delegate void StoryViewUpdateEventHandler(string sala);
-    public static event StoryViewUpdateEventHandler OnRoomUpdate;
+
+    public event EventHandler<string> OnRoomUpdate;
 
     // inicializa as variaveis e lança event
     public void PlayerStart()
     {
-        life = Random.Range(40, 80);
-        attackPower = Random.Range(2, 8);
+        life = UnityEngine.Random.Range(40, 80);
+        attackPower = UnityEngine.Random.Range(2, 8);
         Debug.Log("Criei Jogador com " + life + " de vida e " + attackPower + " de ataque");
         PlayerInfoUpdate();
         ActualRoom();
-    }    
+    }
 
     //Metodo publico para alteração da vida
     public void LifeUpdate(int quantity)
     {
         PlayerLifeChange(quantity);
     }
-    
+
     // Método publico para alteração do poder de ataque
     public void PowerUpdate(int quantity)
     {
@@ -38,9 +46,9 @@ public class Player : MonoBehaviour, IAtacaAguenta
     }
 
     // Metodo publico para alteração de sala
-    public void RoomUpdate(Sala sala)
+    public void RoomUpdate(string userInput)
     {
-        RoomChange(sala);
+        RoomChange(userInput);
     }
 
     // Altera a variavel life e lança event 
@@ -49,10 +57,10 @@ public class Player : MonoBehaviour, IAtacaAguenta
         life += quantity;
         if (life <= 0)
         {
-            life = 0;            
+            life = 0;
             PlayerDead();
         }
-        
+
         else if (life > 100)
         {
             life = 100;
@@ -66,7 +74,7 @@ public class Player : MonoBehaviour, IAtacaAguenta
         attackPower += quantity;
         if (attackPower <= 2)
         {
-            attackPower = 2;            
+            attackPower = 2;
         }
 
         else if (attackPower > 12)
@@ -77,9 +85,19 @@ public class Player : MonoBehaviour, IAtacaAguenta
     }
 
     // Metodo privado para alteração de sala
-    private void RoomChange(Sala room)
-    {        
-        currentSala = room;
+    public void RoomChange(string userInput)
+    {
+        if (CurrentRoom.saidas.Length > 0)
+        {
+            //Para cada saida existente valida se o input contem o id de sala
+            for (int i = 0; i < CurrentRoom.saidas.Length; i++)
+            {
+                if (userInput.Contains(CurrentRoom.saidas[i].id.ToLower()))
+                {
+                    CurrentRoom = CurrentRoom.saidas[i].salaSeguinte;
+                }
+            }
+        }
         ActualRoom();
     }
 
@@ -96,9 +114,9 @@ public class Player : MonoBehaviour, IAtacaAguenta
     }
 
     // retorna sala actual
-    public Sala CurrentRoom()
+    public Sala PlayerCurrentRoom()
     {
-        return currentSala;
+        return CurrentRoom;
     }
 
     // Lança evento com alterações ao player 
@@ -119,6 +137,6 @@ public class Player : MonoBehaviour, IAtacaAguenta
     public void ActualRoom()
     {
         if (OnRoomUpdate != null)
-            OnRoomUpdate(currentSala.descricao);
+            OnRoomUpdate(this, CurrentRoom.descricao);
     }
 }
