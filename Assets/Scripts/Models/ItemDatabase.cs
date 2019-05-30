@@ -31,17 +31,17 @@ public class ItemDatabase : ScriptableObject
             new Item("Poção de vida", " ",
             new Dictionary<string, int> {
                 { "Life", 50 },
-                { "Power", 2 }
+                { "Power", 0 }
             }),
             new Item("Poção de força", " ",
             new Dictionary<string, int> {
-                { "Life", 2 },
+                { "Life", 0 },
                 { "Power", 10 }
             }),
-            new Item("Silver Pick", "A pick that could kill a vampire.",
+            new Item("Espada Mágica", " ",
             new Dictionary<string, int> {
-                { "Power", 5 },
-                { "Mining", 20}
+                { "Life", 0 },
+                { "Power", 2 }
             })
         };
     }
