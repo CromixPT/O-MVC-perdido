@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 201109809}
   - component: {fileID: 201109811}
   - component: {fileID: 201109810}
+  - component: {fileID: 201109812}
   m_Layer: 5
   m_Name: EnemyText
   m_TagString: Untagged
@@ -285,6 +286,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201109808}
   m_CullTransparentMesh: 0
+--- !u!114 &201109812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201109808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ced073d552e404489a2021c484a665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyText: {fileID: 201109810}
 --- !u!1 &358890518
 GameObject:
   m_ObjectHideFlags: 0

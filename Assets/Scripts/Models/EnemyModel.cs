@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyModel : MonoBehaviour, IAtacaAguenta
 {
+
+    public delegate void ViewEnemyUpdateEventHandler(int life, int attackPower);
+    public static event ViewEnemyUpdateEventHandler OnEnemyInfoChange;
+
     private int life { get; set; }
     private int attackPower { get; set; }
 
@@ -13,6 +17,7 @@ public class EnemyModel : MonoBehaviour, IAtacaAguenta
         life = Random.Range(10, 21);
         attackPower = Random.Range(2, 8);
         Debug.Log("Criei Inimigo com " + life + " de vida e " + attackPower + " de ataque");
+        EnemyInfoUpdate();
     }
 
     public int AttackPower()
@@ -32,6 +37,13 @@ public class EnemyModel : MonoBehaviour, IAtacaAguenta
         {
             //Tratar morte jogador
         }
+        EnemyInfoUpdate();
+    }
+
+    public void EnemyInfoUpdate()
+    {
+        if (OnEnemyInfoChange != null)
+            OnEnemyInfoChange(life, attackPower);
     }
 
 }

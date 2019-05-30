@@ -30,6 +30,9 @@ public class CombatController : MonoBehaviour
     public delegate int OnDiceRoll();
     public static event OnDiceRoll onDiceRoll;
 
+    public delegate void ViewEnemyUpdateEventHandler(int life, int attackPower);
+    public static event ViewEnemyUpdateEventHandler OnEnemyInfoChange;
+
     //Atributos
     public EnemyModel enemy;
     public Dados dado;
@@ -42,6 +45,7 @@ public class CombatController : MonoBehaviour
     public GameObject dado1;
     public string input;
     public static int jogador = 1;
+    private EnemyView enemyView;
 
 
     // Start is called before the first frame update
@@ -52,6 +56,8 @@ public class CombatController : MonoBehaviour
         dado1.GetComponent<Renderer>().enabled = false;
         enemy = GetComponent<EnemyModel>();
 
+        enemyView = GameObject.Find("EnemyText").GetComponent<EnemyView>();
+        enemyView.gameObject.SetActive(false);
         //Subscrição eventos do controller
         onCombatStart += enemy.Enemy;
         onCombatStart += player.PlayerStart;
@@ -62,12 +68,15 @@ public class CombatController : MonoBehaviour
         onPlayerDamage += player.LifeUpdate;
         onEnemyDamage += enemy.Damage;
         onDiceRoll += dado.rolar;
+        EnemyModel.OnEnemyInfoChange += enemyView.UpdateView;
+        
 
     }
 
     void Start()
     {
-        CombatStart();         
+        CombatStart();
+
     }
 
     protected virtual void CombatStart()
@@ -96,6 +105,7 @@ public class CombatController : MonoBehaviour
     {
         //Inicializar combate
         Debug.Log("Iniciei Combate com jogador " + CombatController.jogador);
+        enemyView.gameObject.SetActive(true);
         //Rolar dados para inimigo
         if (CombatController.jogador == 1)
         {
