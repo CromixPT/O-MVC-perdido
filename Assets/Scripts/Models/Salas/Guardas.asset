@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Guardas
   m_EditorClassIdentifier: 
   nome: salaguardas
-  descricao: Sala dos Guardas
+  descricao: "Entras na sala dos guardas e v\xEAs dois guardas prisioneiros bastante
+    abalados.\n\nTentas falar com eles, mas apercebes-te que algu\xE9m os deve ter
+    drogado ou enfeiti\xE7ado porque eles nem sabem quem s\xE3o. \n\nInfelizmente
+    n\xE3o te v\xE3o conseguir ajudar. \n\nResta-te analisar a sala onde estava o
+    MVC para tentares encontrar alguma pista, mas pelo menos tens a satisfa\xE7\xE3o
+    que lhes salvaste a vida."
   saidas:
   - id: MVC
     salaSeguinte: {fileID: 11400000, guid: a9a0fc33e82bfd14e81a960a7a727834, type: 2}

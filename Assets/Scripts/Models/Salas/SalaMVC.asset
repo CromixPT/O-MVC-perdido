@@ -13,5 +13,13 @@ MonoBehaviour:
   m_Name: SalaMVC
   m_EditorClassIdentifier: 
   nome: salamvc
-  descricao: Estas na sala do MVC....
-  saidas: []
+  descricao: "O MVC estava exposto para ser analisado numa estante cheia de diamantes
+    incrustados em ouro. Como n\xE3o levaram mais nada desta sala cheia de riquezas,
+    apercebes-te que o objetivo real era mesmo o de roubar o MVC.\r\n\nVerificas que
+    existem duas portas, uma \xE0 tua direita completamente fechada e uma porta \xE0
+    tua esquerda entreaberta. \n\nPor qual das portas decides seguir?\r\n"
+  saidas:
+  - id: direita
+    salaSeguinte: {fileID: 11400000, guid: 1397de9197809654fbfd908507801acb, type: 2}
+  - id: esquerda
+    salaSeguinte: {fileID: 11400000, guid: 64b000cfc5b8aff4ca0ed9bb6589b8fd, type: 2}
