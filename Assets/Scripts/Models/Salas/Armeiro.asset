@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c6882c92b41844c98bb76f3bcc6694, type: 3}
+  m_Name: Armeiro
+  m_EditorClassIdentifier: 
+  nome: Armeiro
+  descricao: "Ap\xF3s abrires a porta que estava fechada, encontras-te numa sala cheia
+    de armas, armaduras e frascos com po\xE7\xF5es. \n\nEst\xE1s num dos armeiros
+    do castelo e chama-te a aten\xE7\xE3o uma mesa que tem uma espada com um brilho
+    azul intenso.\r\n\nVerificas que nesta sala apenas existe a porta de onde vieste
+    e uma sa\xEDda \xE0 tua frente que se encontra fechada.\r\n\nO que pretendes fazer?\r\n"
+  saidas:
+  - id: espada
+    salaSeguinte: {fileID: 11400000, guid: 734c4d8e28e6b6047affcfcae0a54f02, type: 2}

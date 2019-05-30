@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c6882c92b41844c98bb76f3bcc6694, type: 3}
+  m_Name: Vitoria1
+  m_EditorClassIdentifier: 
+  nome: Vitoria1
+  descricao: "O corpo do guerreiro ca\xEDdo encontra-se entre ti e a sa\xEDda do corredor.
+    \n\nPode ser ele quem roubou o MVC? \nSer\xE1 que o tem com ele? Talvez devas
+    procurar o corpo do guerreiro"
+  saidas:
+  - id: corpo
+    salaSeguinte: {fileID: 11400000, guid: 59a48c8635728d34f9b746e48f9cbd4f, type: 2}

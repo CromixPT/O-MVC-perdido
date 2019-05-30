@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c6882c92b41844c98bb76f3bcc6694, type: 3}
+  m_Name: GuardarEspada
+  m_EditorClassIdentifier: 
+  nome: GuardarEspada
+  descricao: "Guardas a espada no teu cintur\xE3o e sentes imediatamente que caso
+    tenhas de a usar, o teu poder de ataque aumentou 2 unidades\n\nSegues em frente
+    para o p\xE1tio?"
+  saidas:
+  - id: patio
+    salaSeguinte: {fileID: 11400000, guid: 9ad0477434b7b7e4e896f4c61196042e, type: 2}

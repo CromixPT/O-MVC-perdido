@@ -53,15 +53,19 @@ public class StoryView : MonoBehaviour
 
     public void LogString(string stringToAdd)
     {
+
         //If textbox is empty initializes it, elses adds log
-        if (DisplayText.text == "")
-        {
-            DisplayText.text = stringToAdd + "\n";
-        }
-        else
-        {
-            DisplayText.text += stringToAdd + "\n";
-        }
+        //if (DisplayText.text == "")
+        //{
+        //    DisplayText.text = stringToAdd + "\n";
+        //}
+        //else
+        //{
+        //    DisplayText.text += stringToAdd + "\n";
+        //}
+
+        //To work in a correct way need to have scrolling text area, currently hard to implement in Unity, so replacing all text every room change.
+        DisplayText.text = stringToAdd + "\n";
     }
 
 
