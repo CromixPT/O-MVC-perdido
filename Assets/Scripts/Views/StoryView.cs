@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 
 
-public class LogString : MonoBehaviour
+public class StoryView: MonoBehaviour
 {
     public Text DisplayText;
 

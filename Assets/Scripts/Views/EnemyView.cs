@@ -10,8 +10,8 @@ public class EnemyView : MonoBehaviour
     public Text EnemyText;
 
 
-    public void CombatStart(string enemyHP, string enemyAttack) {
-        string txtCombatStart = $"Vida do inimigo: {enemyHP}\nAtaque do inimigo: {enemyAttack}";
+    public void CombatStart(int enemyHP, int enemyAttack) {
+        string txtCombatStart = $"Vida do inimigo: {enemyHP.ToString()}\nAtaque do inimigo: {enemyAttack.ToString()}";
         UpdateView(txtCombatStart);
     }
     private void Awake()

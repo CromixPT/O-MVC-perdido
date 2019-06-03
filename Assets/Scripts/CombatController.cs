@@ -68,7 +68,7 @@ public class CombatController : MonoBehaviour
         onPlayerDamage += player.LifeUpdate;
         onEnemyDamage += enemy.Damage;
         onDiceRoll += dado.rolar;
-        EnemyModel.OnEnemyInfoChange += enemyView.UpdateView;
+        EnemyModel.OnEnemyInfoChange += enemyView.CombatStart;
         
 
     }
