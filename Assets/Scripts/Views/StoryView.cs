@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 
-public class StoryView : MonoBehaviour
+public class LogString : MonoBehaviour
 {
     public Text DisplayText;
 

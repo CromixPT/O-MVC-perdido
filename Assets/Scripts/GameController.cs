@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     public static event RoomChangeEventHandler onRoomChange;
 
     //Atributos do Controller
-    private StoryView storyView;
+    private LogString storyView;
     private PlayerView playerView;
     private InventoryView inventoryView;
     private Player player;
@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
         //Inicialização dos componentes do jogo
         inventory = new Inventory();
         player = GetComponent<Player>();
-        storyView = GameObject.Find("StoryText").GetComponent<StoryView>();
+        storyView = GameObject.Find("StoryText").GetComponent<LogString>();
         playerView = GameObject.Find("PlayerText").GetComponent<PlayerView>();
         inventoryView = GameObject.Find("InventoryText").GetComponent<InventoryView>();
         gamec = GetComponent<CombatController>();
