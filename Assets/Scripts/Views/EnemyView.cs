@@ -16,7 +16,9 @@ public class EnemyView : MonoBehaviour
     }
     private void Awake()
     {
+        EnemyText = GameObject.Find("EnemyText").GetComponent<Text>();
         CombatSuccess();
+        
     }
 
     public void CombatFailed()
@@ -34,7 +36,7 @@ public class EnemyView : MonoBehaviour
 
     public void UpdateView(string stringToShow)
     {
-        EnemyText.text += stringToShow;
+        EnemyText.text = stringToShow;
    
     }
 
