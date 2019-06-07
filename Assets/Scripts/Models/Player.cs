@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IAtacaAguenta, IMudarSala
 {
+    private Inventory inventory;
+
+
     private int life { get; set; }
     private int attackPower { get; set; }
 
@@ -31,6 +34,7 @@ public class Player : MonoBehaviour, IAtacaAguenta, IMudarSala
         Debug.Log("Criei Jogador com " + life + " de vida e " + attackPower + " de ataque");
         PlayerInfoUpdate();
         ActualRoom();
+        inventory = new Inventory();
     }
 
     //Metodo publico para alteração da vida
@@ -95,6 +99,19 @@ public class Player : MonoBehaviour, IAtacaAguenta, IMudarSala
                 if (userInput.Contains(CurrentRoom.saidas[i].id.ToLower()))
                 {
                     CurrentRoom = CurrentRoom.saidas[i].salaSeguinte;
+                    //Se a sala for a sala com item adiciona item ao inventario
+                    if (CurrentRoom.nome == "GuardarEspada")
+                    {
+                        try
+                        {
+                            inventory.AddItem("Espada Mágica");
+                        }
+                        catch (ExItemInexistente)
+                        {
+
+                            throw;
+                        }
+                    }
                     ActualRoom();
                 }
             }

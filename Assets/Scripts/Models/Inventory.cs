@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class Inventory
 {
@@ -18,7 +16,6 @@ public class Inventory
         Item itemToAdd = itemDatabase.GetItem(itemName);
         characterItems.Add(itemToAdd);
         InventoryUpdate();
-        Debug.Log("Added item: " + itemToAdd.title);
 
     }
 
@@ -40,7 +37,6 @@ public class Inventory
         {
             characterItems.Remove(itemToRemove);
             InventoryUpdate();
-            Debug.Log("Removed item: " + itemToRemove.title);
         }
     }
 

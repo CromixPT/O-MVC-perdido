@@ -15,14 +15,14 @@ public class GameController : MonoBehaviour
     private PlayerView playerView;
     private InventoryView inventoryView;
     private Player player;
-    private Inventory inventory;
+
     public InputField inputField;
     private CombatController gamec;
 
     void Awake()
     {
         //Inicialização dos componentes do jogo
-        inventory = new Inventory();
+
         player = GetComponent<Player>();
         storyView = GameObject.Find("StoryText").GetComponent<StoryView>();
         playerView = GameObject.Find("PlayerText").GetComponent<PlayerView>();
@@ -62,9 +62,11 @@ public class GameController : MonoBehaviour
 
     void AcceptStringInput(string userInput)
     {
-
+        //Converter input para lowercase
         userInput = userInput.ToLower();
+        //Ativa o evento de mudança de sala para "chamar" o model
         ChangeRoom(userInput);
+        //Garante que o input field tá limpo e novamente ativo.
         inputField.ActivateInputField();
         inputField.text = null;
     }
