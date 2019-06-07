@@ -106,10 +106,10 @@ public class Player : MonoBehaviour, IAtacaAguenta, IMudarSala
                         {
                             inventory.AddItem("Espada Mágica");
                         }
-                        catch (ExItemInexistente)
+                        catch (ExItemInexistente ex)
                         {
 
-                            throw;
+                            Debug.Log(ex);
                         }
                     }
                     ActualRoom();
