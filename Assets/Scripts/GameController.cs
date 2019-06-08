@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public static event RoomChangeEventHandler onRoomChange;
 
     //Atributos do Controller
-    private StoryView storyView;
+    public static StoryView storyView;
     private PlayerView playerView;
     private InventoryView inventoryView;
     public static Player player;

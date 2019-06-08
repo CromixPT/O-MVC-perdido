@@ -30,6 +30,18 @@ public class CombatController : MonoBehaviour
     public delegate int OnDiceRoll();
     public static event OnDiceRoll onDiceRoll;
 
+    public delegate void OnEnemyAppearEventHandler(string vida, string ataque);
+    public static event OnEnemyAppearEventHandler onEnemyAppear;
+
+    public delegate void OnEnemyAtackEventHandler(string ataque);
+    public static event OnEnemyAtackEventHandler onEnemyAttack;
+
+    public delegate void OnPlayerAtackEventHandler(string ataque);
+    public static event OnPlayerAtackEventHandler onPlayerAttack;
+
+    public delegate void OnCombatPowerEventHandler(string player, string ataque);
+    public static event OnCombatPowerEventHandler onCombatPower;
+
     public delegate void ViewEnemyUpdateEventHandler(int life, int attackPower);
 
     //Atributos
@@ -45,6 +57,8 @@ public class CombatController : MonoBehaviour
     public string input;
     public static int jogador = 1;
     private EnemyView enemyView;
+    public StoryView storyView;
+    int teste = 0;
 
 
     // Start is called before the first frame update
@@ -55,6 +69,7 @@ public class CombatController : MonoBehaviour
         dado1.GetComponent<Renderer>().enabled = false;
         enemy = GetComponent<EnemyModel>();
         player = GameController.player;
+        storyView = GameController.storyView;
         enemyView = GameObject.Find("EnemyText").GetComponent<EnemyView>();
         enemyView.gameObject.SetActive(false);
         //Subscrição eventos do controller
@@ -67,7 +82,12 @@ public class CombatController : MonoBehaviour
         onEnemyDamage += enemy.Damage;
         onDiceRoll += dado.rolar;
         EnemyModel.OnEnemyInfoChange += enemyView.CombatStart;
-        
+        onEnemyAppear += storyView.CombatStart;
+        onEnemyAttack += storyView.CombatEnemyAttack;
+        onPlayerAttack += storyView.CombatPlayerAttack;
+        onCombatPower += storyView.CombatForce;
+
+
 
     }
 
@@ -89,9 +109,18 @@ public class CombatController : MonoBehaviour
     public void Text_Changed(string entrada)
     {
         input = entrada.ToLower();
-        if (input == "rolar dados")
+        if (input == "rolar dados"&&player.CurrentRoom.nome=="Corredor")
         {
-
+            if(teste==0)
+            {
+                if (onEnemyAppear != null)
+                {
+                    int vida = onEnemyLife();
+                    int ataque = onEnemyPower();
+                    onEnemyAppear(vida.ToString(), ataque.ToString());
+                }
+                teste++;
+            }
             luta();
             //Mostrar o dado depois do comando de rolar o dado
             dado1.GetComponent<Renderer>().enabled = true;
@@ -103,6 +132,7 @@ public class CombatController : MonoBehaviour
     {
         //Inicializar combate
         Debug.Log("Iniciei Combate com jogador " + CombatController.jogador);
+       
         enemyView.gameObject.SetActive(true);
         //Rolar dados para inimigo
         if (CombatController.jogador == 1)
@@ -116,6 +146,10 @@ public class CombatController : MonoBehaviour
                     valor_dado = onDiceRoll() + 1;
                     valor_ataque_inimigo += valor_dado;
                     Debug.Log("Valor do poder de ataque com o dado" + (valor_ataque_inimigo));
+                }
+                if(onCombatPower!=null)
+                {
+                    onCombatPower("Inimigo", valor_ataque_inimigo.ToString());
                 }
             }
             jogador = 2;
@@ -132,6 +166,10 @@ public class CombatController : MonoBehaviour
                     valor_dado = onDiceRoll() + 1;
                     valor_ataque_player += valor_dado;
                     Debug.Log("Valor do poder de ataque com o dado" + (valor_ataque_player));
+                }
+                if (onCombatPower != null)
+                {
+                    onCombatPower("Jogador", valor_ataque_player.ToString());
                 }
             }
             //Atribuição de dano do combate
@@ -150,6 +188,10 @@ public class CombatController : MonoBehaviour
                 {
                     valor_vida_inimigo = onEnemyLife();
                 }
+                if(onPlayerAttack!=null)
+                {
+                    onPlayerAttack((valor_ataque_player - valor_ataque_inimigo).ToString());
+                }
 
                 Debug.Log("Valores de vida depois da jogada: Jogador: " + valor_vida_player + " Inimigo: " + valor_vida_inimigo);
             }
@@ -167,6 +209,10 @@ public class CombatController : MonoBehaviour
                 if (onEnemyLife != null)
                 {
                     valor_vida_inimigo = onEnemyLife();
+                }
+                if (onEnemyAttack != null)
+                {
+                    onEnemyAttack((valor_ataque_inimigo - valor_ataque_player).ToString());
                 }
 
                 Debug.Log("Valores de vida depois da jogada: Jogador: " + valor_vida_player + " Inimigo: " + valor_vida_inimigo);

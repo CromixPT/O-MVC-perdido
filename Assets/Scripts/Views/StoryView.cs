@@ -26,6 +26,12 @@ public class StoryView: MonoBehaviour
         LogString(txtCombatEnemyAttack);
     }
 
+    public void CombatForce(string player, string power)
+    {
+        string txtCombatForce = $"O {player} tem um poder de ataque de {power} unidades!";
+        LogString(txtCombatForce);
+    }
+
     public void CombatFailed()
     {
         string txtCombatFailed = $"O ataque do inimigo foi fatal e a tua história acaba aqui.";
