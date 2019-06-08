@@ -15,9 +15,10 @@ MonoBehaviour:
   nome: Armeiro
   descricao: "Ap\xF3s abrires a porta que estava fechada, encontras-te numa sala cheia
     de armas, armaduras e frascos com po\xE7\xF5es. \n\nEst\xE1s num dos armeiros
-    do castelo e chama-te a aten\xE7\xE3o uma mesa que tem uma espada com um brilho
-    azul intenso.\r\n\nVerificas que nesta sala apenas existe a porta de onde vieste
-    e uma sa\xEDda \xE0 tua frente que se encontra fechada.\r\n\nO que pretendes fazer?\r\n"
+    do castelo e chama-te a aten\xE7\xE3o uma mesa que tem uma <b>espada</b> com um
+    brilho azul intenso.\r\n\nVerificas que nesta sala apenas existe a porta de onde
+    vieste e uma sa\xEDda \xE0 tua frente que se encontra fechada.\r\n\nO que pretendes
+    fazer?\r\n"
   saidas:
   - id: espada
     salaSeguinte: {fileID: 11400000, guid: 734c4d8e28e6b6047affcfcae0a54f02, type: 2}

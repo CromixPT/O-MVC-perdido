@@ -16,7 +16,7 @@ MonoBehaviour:
   descricao: "Verificas que o guerreiro apresenta s\xEDmbolos do cl\xE3 LabDS, um
     cl\xE3 conhecido pelas suas ideias pacificas, mas este guerreiro era tudo menos
     pacifico. \n\nO que poder\xE1 isto significar? Tens de seguir em frente para o
-    P\xE1tio."
+    <b>patio</b>."
   saidas:
   - id: patio
     salaSeguinte: {fileID: 11400000, guid: 9ad0477434b7b7e4e896f4c61196042e, type: 2}

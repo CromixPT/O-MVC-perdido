@@ -15,7 +15,7 @@ MonoBehaviour:
   nome: GuardarEspada
   descricao: "Guardas a espada no teu cintur\xE3o e sentes imediatamente que caso
     tenhas de a usar, o teu poder de ataque aumentou 2 unidades\n\nSegues em frente
-    para o p\xE1tio?"
+    para o <b>patio</b>?"
   saidas:
   - id: patio
     salaSeguinte: {fileID: 11400000, guid: 9ad0477434b7b7e4e896f4c61196042e, type: 2}

@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: SalaInicial
   m_EditorClassIdentifier: 
   nome: SalaInicial
-  descricao: "O MVC foi roubado do pal\xE1cio real, de alguma forma algu\xE9m conseguiu
-    entrar na sala mais protegida do imp\xE9rio e sair de l\xE1 sem ningu\xE9m dar
-    conta. O imperador est\xE1 furioso, por ele j\xE1 tinha executado os guardas que
-    n\xE3o deram conta do roubo, mas felizmente foi alertado que podem lembrar-se
+  descricao: "O <b>MVC</b> foi roubado do pal\xE1cio real, de alguma forma algu\xE9m
+    conseguiu entrar na sala mais protegida do imp\xE9rio e sair de l\xE1 sem ningu\xE9m
+    dar conta. O imperador est\xE1 furioso, por ele j\xE1 tinha executado os guardas
+    que n\xE3o deram conta do roubo, mas felizmente foi alertado que podem lembrar-se
     de alguma coisa.\r\n\r\nFoste chamado de urg\xEAncia ao pal\xE1cio, o Imperador
-    quer o seu MVC de volta, e deu-te a ti a tarefa de o encontrar. A tua vida depende
-    disso.\r\n\r\nNo momento do roubo estavam dois guardas a vigiar a sala, ser\xE1
-    que se lembram de algo? Haver\xE1 pistas na sala do MVC? Saber mais sobre o MVC
-    podia ajudar\u2026\r\n"
+    quer o seu <b>MVC</b> de volta, e deu-te a ti a tarefa de o encontrar. A tua vida
+    depende disso.\r\n\r\nNo momento do roubo estavam dois <b>guardas</b> a vigiar
+    a sala, ser\xE1 que se lembram de algo? Haver\xE1 pistas na sala do <b>MVC</b>?
+    Saber mais sobre o <b>MVC</b> podia ajudar\u2026\r\n"
   saidas:
   - id: guardas
     salaSeguinte: {fileID: 11400000, guid: a82450b8c337f694fb1906221cf0c78a, type: 2}
