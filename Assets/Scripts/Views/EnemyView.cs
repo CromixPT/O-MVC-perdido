@@ -29,7 +29,7 @@ public class EnemyView : MonoBehaviour
 
     public void CombatSuccess()
     {
-        string txtCombatSuccess = $"Por enquano estás seguro.";
+        string txtCombatSuccess = $"Por enquanto estás seguro.";
         UpdateView(txtCombatSuccess);
     }
 

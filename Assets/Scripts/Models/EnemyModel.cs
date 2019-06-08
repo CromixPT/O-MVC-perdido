@@ -17,6 +17,10 @@ public class EnemyModel : MonoBehaviour, IAtacaAguenta
         life = Random.Range(10, 21);
         attackPower = Random.Range(2, 8);
         Debug.Log("Criei Inimigo com " + life + " de vida e " + attackPower + " de ataque");
+        if(life<10||life>20||attackPower<2||attackPower>7)
+        {
+            throw new ExErroInimigo("Erro Criação Inimigo");
+        }
         EnemyInfoUpdate();
     }
 

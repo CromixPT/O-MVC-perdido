@@ -48,6 +48,9 @@ public class CombatController : MonoBehaviour
     public delegate void OnPlayerDeathEventHandler();
     public static event OnPlayerDeathEventHandler onPlayerDeath;
 
+    public delegate void OnEnemyErrorEventHandler();
+    public static event OnEnemyErrorEventHandler onEnemyError;
+
 
     public delegate void ViewEnemyUpdateEventHandler(int life, int attackPower);
 
@@ -95,14 +98,28 @@ public class CombatController : MonoBehaviour
         onCombatPower += storyView.CombatForce;
         onEnemyDeath += storyView.CombatSuccess;
         onPlayerDeath += storyView.CombatFailed;
-
-
-
+        onEnemyError += enemyView.CombatSucess;
     }
 
     void Start()
     {
-        CombatStart();
+        try
+        {
+            CombatStart();
+        }
+        catch (ExErroInimigo e)
+        {
+            Debug.Log(e);
+        }
+        finally
+        {
+            if(onEnemyError!=null)
+            {
+                onEnemyError();
+            }
+        }
+
+        
 
     }
 
