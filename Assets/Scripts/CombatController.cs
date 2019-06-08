@@ -42,6 +42,13 @@ public class CombatController : MonoBehaviour
     public delegate void OnCombatPowerEventHandler(string player, string ataque);
     public static event OnCombatPowerEventHandler onCombatPower;
 
+    public delegate void OnEnemyDeathEventHandler();
+    public static event OnEnemyDeathEventHandler onEnemyDeath;
+
+    public delegate void OnPlayerDeathEventHandler();
+    public static event OnPlayerDeathEventHandler onPlayerDeath;
+
+
     public delegate void ViewEnemyUpdateEventHandler(int life, int attackPower);
 
     //Atributos
@@ -86,6 +93,8 @@ public class CombatController : MonoBehaviour
         onEnemyAttack += storyView.CombatEnemyAttack;
         onPlayerAttack += storyView.CombatPlayerAttack;
         onCombatPower += storyView.CombatForce;
+        onEnemyDeath += storyView.CombatSuccess;
+        onPlayerDeath += storyView.CombatFailed;
 
 
 
@@ -218,6 +227,24 @@ public class CombatController : MonoBehaviour
                 Debug.Log("Valores de vida depois da jogada: Jogador: " + valor_vida_player + " Inimigo: " + valor_vida_inimigo);
             }
             jogador = 1;
+            if(onEnemyLife()<=0)
+            {
+               if(onEnemyDeath!=null)
+                {
+                    onEnemyDeath();
+                }
+                dado1.GetComponent<Renderer>().enabled = false;
+               
+            }
+            if (onPlayerLife() <= 0)
+            {
+               if (onPlayerDeath != null)
+                {
+                    onPlayerDeath();
+                }
+                dado1.GetComponent<Renderer>().enabled = false;
+
+            }
         }
         //Esconder o dado
         dado1.GetComponent<Renderer>().enabled = false;

@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
         inputField.text = null;
     }
 
-    protected void ChangeRoom(string userInput)
+    public static void ChangeRoom(string userInput)
     {
         if (onRoomChange != null)
         {
