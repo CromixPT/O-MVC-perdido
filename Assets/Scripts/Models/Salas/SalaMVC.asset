@@ -16,8 +16,8 @@ MonoBehaviour:
   descricao: "O MVC estava exposto para ser analisado numa estante cheia de diamantes
     incrustados em ouro. Como n\xE3o levaram mais nada desta sala cheia de riquezas,
     apercebes-te que o objetivo real era mesmo o de roubar o MVC.\r\n\nVerificas que
-    existem duas portas, uma \xE0 tua direita completamente fechada e uma porta \xE0
-    tua esquerda entreaberta. \n\nPor qual das portas decides seguir?\r\n"
+    existem duas portas, uma \xE0 tua <b>direita</b> completamente fechada e uma porta
+    \xE0 tua <b>esquerda</b> entreaberta. \n\nPor qual das portas decides seguir?\r\n"
   saidas:
   - id: direita
     salaSeguinte: {fileID: 11400000, guid: 1397de9197809654fbfd908507801acb, type: 2}

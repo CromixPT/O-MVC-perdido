@@ -15,7 +15,7 @@ MonoBehaviour:
   nome: Espada
   descricao: "A espada tens uns carateres escritos que n\xE3o reconheces, mas consegues
     sentir que a espada tem poderes que n\xE3o te parecem normais.\n\nAlgo te chama
-    na espada, sentes uma presen\xE7a, talvez devas guardar a espada."
+    na espada, sentes uma presen\xE7a, talvez devas <b>guardar</b> a espada."
   saidas:
   - id: guardar
     salaSeguinte: {fileID: 11400000, guid: 16cf26768bfefc54ab0c23f996f40adb, type: 2}

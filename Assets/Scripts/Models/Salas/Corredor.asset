@@ -18,7 +18,8 @@ MonoBehaviour:
     um guerreiro vestido de branco que olha para ti com olhar intimidante.\r\n\nDiriges-te
     a ele, mas ele diz-te:\r\n- Estava \xE0 tua espera guerreiro\u2026 Acaba aqui
     a tua procura pelo MVC, porque n\xE3o passar\xE1s por mim!\r\n\nVerificas que
-    n\xE3o tens outra hip\xF3tese sen\xE3o lutar, por isso preparas-te para o confronto! "
+    n\xE3o tens outra hip\xF3tese sen\xE3o l\n<b>lutar</b>, por isso preparas-te para
+    o confronto! "
   saidas:
   - id: derrota
     salaSeguinte: {fileID: 11400000, guid: 664c58cce14f06645b8d2acaf054bc93, type: 2}
