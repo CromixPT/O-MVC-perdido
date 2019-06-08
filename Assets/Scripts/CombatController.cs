@@ -98,7 +98,7 @@ public class CombatController : MonoBehaviour
         onCombatPower += storyView.CombatForce;
         onEnemyDeath += storyView.CombatSuccess;
         onPlayerDeath += storyView.CombatFailed;
-        onEnemyError += enemyView.CombatSucess;
+        //onEnemyError += enemyView.CombatSucess;
     }
 
     void Start()
