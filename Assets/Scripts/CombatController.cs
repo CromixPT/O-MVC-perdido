@@ -234,6 +234,7 @@ public class CombatController : MonoBehaviour
                     onEnemyDeath();
                 }
                 dado1.GetComponent<Renderer>().enabled = false;
+                player.RoomChange("vitoria1");
                
             }
             if (onPlayerLife() <= 0)
@@ -243,6 +244,7 @@ public class CombatController : MonoBehaviour
                     onPlayerDeath();
                 }
                 dado1.GetComponent<Renderer>().enabled = false;
+                player.RoomChange("derrota");
 
             }
         }
