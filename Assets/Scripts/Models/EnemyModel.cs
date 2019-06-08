@@ -39,6 +39,7 @@ public class EnemyModel : MonoBehaviour, IAtacaAguenta
         life -= valor;
         if (life < 1)
         {
+            life = 0;
             Debug.Log("Morte do inimigo");
         }
         EnemyInfoUpdate();
