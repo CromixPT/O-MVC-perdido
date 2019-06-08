@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     private StoryView storyView;
     private PlayerView playerView;
     private InventoryView inventoryView;
-    private Player player;
+    public static Player player;
 
     public InputField inputField;
     private CombatController gamec;

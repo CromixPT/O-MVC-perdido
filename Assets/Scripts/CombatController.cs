@@ -31,7 +31,6 @@ public class CombatController : MonoBehaviour
     public static event OnDiceRoll onDiceRoll;
 
     public delegate void ViewEnemyUpdateEventHandler(int life, int attackPower);
-    public static event ViewEnemyUpdateEventHandler OnEnemyInfoChange;
 
     //Atributos
     public EnemyModel enemy;
@@ -55,12 +54,11 @@ public class CombatController : MonoBehaviour
         dado1 = GameObject.FindWithTag("Dado1");
         dado1.GetComponent<Renderer>().enabled = false;
         enemy = GetComponent<EnemyModel>();
-
+        player = GameController.player;
         enemyView = GameObject.Find("EnemyText").GetComponent<EnemyView>();
         enemyView.gameObject.SetActive(false);
         //Subscrição eventos do controller
         onCombatStart += enemy.Enemy;
-        onCombatStart += player.PlayerStart;
         onEnemyPower += enemy.AttackPower;
         onPlayerPower += player.AttackPower;
         onPlayerLife += player.Life;
