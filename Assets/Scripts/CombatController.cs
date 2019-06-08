@@ -135,7 +135,7 @@ public class CombatController : MonoBehaviour
     public void Text_Changed(string entrada)
     {
         input = entrada.ToLower();
-        if (input == "rolar dados"&&player.CurrentRoom.nome=="Corredor")
+        if (input == "lutar"&&player.CurrentRoom.nome=="Corredor")
         {
             if(teste==0)
             {
