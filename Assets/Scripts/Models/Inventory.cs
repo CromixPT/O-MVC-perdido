@@ -10,6 +10,11 @@ public class Inventory
     public delegate void ViewInventoryUpdateEventHandler(List<Item> characterItems);
     public static event ViewInventoryUpdateEventHandler OnInventoryInfoChange;
 
+    public Inventory()
+    {
+        InventoryUpdate();
+    }
+
     // Adiciona Item ao inventário (exceção criada na origem itemDatabase.GetItem(itemName))
     public void AddItem(string itemName)
     {

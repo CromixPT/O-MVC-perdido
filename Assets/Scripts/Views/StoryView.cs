@@ -3,14 +3,14 @@ using UnityEngine.UI;
 
 
 
-public class StoryView: MonoBehaviour
+public class StoryView : MonoBehaviour
 {
     public Text DisplayText;
 
 
     public void CombatStart(string enemyHP, string enemyAttack)
     {
-        string txtCombatStart = $"! COMBATE ! \n Um inimigo com {enemyHP} de vida e {enemyAttack} de ataque apareceu. Prepara-te para lutar.";
+        string txtCombatStart = $"! COMBATE ! \n Um inimigo com {enemyHP} de vida e {enemyAttack} de ataque apareceu. Prepara-te para <b>lutar.</b";
         LogString(txtCombatStart);
     }
 
@@ -22,13 +22,13 @@ public class StoryView: MonoBehaviour
 
     public void CombatEnemyAttack(string dmgReceived)
     {
-        string txtCombatEnemyAttack = $"O inimigo atacou-te e sofreste {dmgReceived} dano.";
+        string txtCombatEnemyAttack = $"O inimigo atacou-te e sofreste {dmgReceived} dano. Continua a <b>lutar</b>";
         LogString(txtCombatEnemyAttack);
     }
 
     public void CombatForce(string player, string power)
     {
-        string txtCombatForce = $"O {player} tem um poder de ataque de {power} unidades!";
+        string txtCombatForce = $"O {player} tem um poder de ataque de {power} unidades!. Continua a <b>lutar</b>";
         LogString(txtCombatForce);
     }
 
@@ -46,7 +46,7 @@ public class StoryView: MonoBehaviour
 
     public void CombatPlayerAttack(string dmgInflicted)
     {
-        string txtCombatPlayerAttack = $"Atacaste o inimigo e causaste {dmgInflicted} dano.";
+        string txtCombatPlayerAttack = $"Atacaste o inimigo e causaste {dmgInflicted} dano. Continua a <b>lutar</b>";
         LogString(txtCombatPlayerAttack);
 
     }

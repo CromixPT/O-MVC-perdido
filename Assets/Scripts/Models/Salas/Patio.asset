@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Patio
   m_EditorClassIdentifier: 
   nome: Patio
-  descricao: "No p\xE1tio encontras o mestre LeonelSan , o guardiao do MVC. \n\nTermina
-    a busca do MVC."
-  saidas: []
+  descricao: "No p\xE1tio encontras o mestre LeonelSan , o guardiao do MVC que te
+    mostra todos os segredos que o imperador queria esconder e percebes porque \xE9
+    que o MVC tem de ser ensinado \xE0 todos\n\nTermina a busca do MVC.\n\nPodes <b>reiniciar</b>
+    para tentar novas aventuras ou <b>sair</b>\n"
+  saidas:
+  - id: salainicial
+    salaSeguinte: {fileID: 11400000, guid: bfdac67c8b2d7da459630cc55cb5686b, type: 2}

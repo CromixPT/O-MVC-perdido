@@ -64,8 +64,18 @@ public class GameController : MonoBehaviour
     {
         //Converter input para lowercase
         userInput = userInput.ToLower();
+
         //Ativa o evento de mudança de sala para "chamar" o model
-        ChangeRoom(userInput);
+        if (userInput == "sair" && (player.CurrentRoom.nome == "Derrota" || player.CurrentRoom.nome == "Patio"))
+            Application.Quit();
+        else if (userInput == "reiniciar" && (player.CurrentRoom.nome == "Derrota" || player.CurrentRoom.nome == "Patio"))
+        {
+            GameStart();
+            ChangeRoom("salainicial");
+        }
+        else
+            ChangeRoom(userInput);
+
         //Garante que o input field tá limpo e novamente ativo.
         inputField.ActivateInputField();
         inputField.text = null;

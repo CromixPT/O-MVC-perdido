@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class CombatController : MonoBehaviour
 {
@@ -98,7 +95,7 @@ public class CombatController : MonoBehaviour
         onCombatPower += storyView.CombatForce;
         onEnemyDeath += storyView.CombatSuccess;
         onPlayerDeath += storyView.CombatFailed;
-        //onEnemyError += enemyView.CombatSucess;
+        onEnemyError += enemyView.CombatSuccess;
     }
 
     void Start()
@@ -113,13 +110,13 @@ public class CombatController : MonoBehaviour
         }
         finally
         {
-            if(onEnemyError!=null)
+            if (onEnemyError != null)
             {
                 onEnemyError();
             }
         }
 
-        
+
 
     }
 
@@ -135,9 +132,9 @@ public class CombatController : MonoBehaviour
     public void Text_Changed(string entrada)
     {
         input = entrada.ToLower();
-        if (input == "lutar"&&player.CurrentRoom.nome=="Corredor")
+        if (input == "lutar" && player.CurrentRoom.nome == "Corredor")
         {
-            if(teste==0)
+            if (teste == 0)
             {
                 if (onEnemyAppear != null)
                 {
@@ -158,7 +155,7 @@ public class CombatController : MonoBehaviour
     {
         //Inicializar combate
         Debug.Log("Iniciei Combate com jogador " + CombatController.jogador);
-       
+
         enemyView.gameObject.SetActive(true);
         //Rolar dados para inimigo
         if (CombatController.jogador == 1)
@@ -173,7 +170,7 @@ public class CombatController : MonoBehaviour
                     valor_ataque_inimigo += valor_dado;
                     Debug.Log("Valor do poder de ataque com o dado" + (valor_ataque_inimigo));
                 }
-                if(onCombatPower!=null)
+                if (onCombatPower != null)
                 {
                     onCombatPower("Inimigo", valor_ataque_inimigo.ToString());
                 }
@@ -214,7 +211,7 @@ public class CombatController : MonoBehaviour
                 {
                     valor_vida_inimigo = onEnemyLife();
                 }
-                if(onPlayerAttack!=null)
+                if (onPlayerAttack != null)
                 {
                     onPlayerAttack((valor_ataque_player - valor_ataque_inimigo).ToString());
                 }
@@ -244,19 +241,19 @@ public class CombatController : MonoBehaviour
                 Debug.Log("Valores de vida depois da jogada: Jogador: " + valor_vida_player + " Inimigo: " + valor_vida_inimigo);
             }
             jogador = 1;
-            if(onEnemyLife()<=0)
+            if (onEnemyLife() <= 0)
             {
-               if(onEnemyDeath!=null)
+                if (onEnemyDeath != null)
                 {
                     onEnemyDeath();
                 }
                 dado1.GetComponent<Renderer>().enabled = false;
                 player.RoomChange("vitoria1");
-               
+
             }
             if (onPlayerLife() <= 0)
             {
-               if (onPlayerDeath != null)
+                if (onPlayerDeath != null)
                 {
                     onPlayerDeath();
                 }

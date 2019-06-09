@@ -15,5 +15,8 @@ MonoBehaviour:
   nome: Derrota
   descricao: "A tua procura chegou ao fim pois n\xE3o foste capaz de superar o teu
     inimigo. \n\nNo teu \xFAltimo suspiro pensas que esta derrota pode significar
-    a queda de todo um imp\xE9rio\u2026"
-  saidas: []
+    a queda de todo um imp\xE9rio\u2026\n\nPodes <b>reiniciar</b> para tentar encontrar
+    o destino do MVC ou <b>sair</b>"
+  saidas:
+  - id: salainicial
+    salaSeguinte: {fileID: 11400000, guid: bfdac67c8b2d7da459630cc55cb5686b, type: 2}
