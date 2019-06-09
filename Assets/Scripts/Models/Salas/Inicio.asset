@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c6882c92b41844c98bb76f3bcc6694, type: 3}
+  m_Name: Inicio
+  m_EditorClassIdentifier: 
+  nome: inicio
+  descricao: "Bem vindo Aventureiro,\r\n\nA busca pelo MVC \xE9 uma aventura fant\xE1stica
+    onde tu escolhes o teu pr\xF3prio destino e tens de salvar o imp\xE9rio e descobrir
+    o que aconteceu ao MVC do reino.\r\n\nPara te ajudar os comandos a dar estar\xE3o
+    sempre em <b>negrito</b> e os combates s\xE3o feitos a turno. A qualquer momento
+    podes escrever <b>sair</b> para terminar a aventura\r\n\n\r\nQuando quiseres escreve
+    <b>iniciar</b> para come\xE7ares as tuas aventuras\n\nBoa sorte!"
+  saidas:
+  - id: salainicial
+    salaSeguinte: {fileID: 11400000, guid: bfdac67c8b2d7da459630cc55cb5686b, type: 2}

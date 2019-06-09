@@ -770,7 +770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9631b60ef35b05f4d951fc697be09e2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 11400000, guid: bfdac67c8b2d7da459630cc55cb5686b, type: 2}
+  Room: {fileID: 11400000, guid: fb031171b678d7b4b8e96760916e92e1, type: 2}
 --- !u!1 &876898057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,6 +1019,7 @@ MonoBehaviour:
   valor_ataque_inimigo: 0
   dado1: {fileID: 184759381}
   input: 
+  storyView: {fileID: 0}
 --- !u!212 &879079610
 SpriteRenderer:
   m_ObjectHideFlags: 0

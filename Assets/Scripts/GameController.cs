@@ -66,13 +66,15 @@ public class GameController : MonoBehaviour
         userInput = userInput.ToLower();
 
         //Ativa o evento de mudança de sala para "chamar" o model
-        if (userInput == "sair" && (player.CurrentRoom.nome == "Derrota" || player.CurrentRoom.nome == "Patio"))
+        if (userInput == "sair")
             Application.Quit();
         else if (userInput == "reiniciar" && (player.CurrentRoom.nome == "Derrota" || player.CurrentRoom.nome == "Patio"))
         {
             GameStart();
             ChangeRoom("salainicial");
         }
+        else if (userInput == "iniciar" && player.CurrentRoom.nome == "inicio")
+            ChangeRoom("salainicial");
         else
             ChangeRoom(userInput);
 
